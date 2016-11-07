@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0ED4DA1DD0459C00D699B7 /* BackToHomeRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */; };
 		4E135A7E1DCF0E9C0098CA94 /* AddressMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E135A7D1DCF0E9C0098CA94 /* AddressMapView.swift */; };
 		4E135A811DCF0F9E0098CA94 /* Pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A801DCF0F9E0098CA94 /* Pop.mp3 */; };
 		4E135A831DCF0FAF0098CA94 /* swish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A821DCF0FAF0098CA94 /* swish.mp3 */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackToHomeRight.swift; sourceTree = "<group>"; };
 		4E135A7D1DCF0E9C0098CA94 /* AddressMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressMapView.swift; sourceTree = "<group>"; };
 		4E135A801DCF0F9E0098CA94 /* Pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Pop.mp3; path = ../../Downloads/Pop.mp3; sourceTree = "<group>"; };
 		4E135A821DCF0FAF0098CA94 /* swish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = swish.mp3; path = ../../Downloads/swish.mp3; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				4E74A4831DCC366A00490A78 /* LeftToRightSegue.swift */,
 				4E74A48E1DCC42A400490A78 /* CircularTransition.swift */,
 				4EACD4161DCBF7D100B07669 /* SegueTransition.swift */,
+				4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */,
 			);
 			name = "Segue Animation Classes";
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				4EACD3FF1DC9967800B07669 /* UserView.swift in Sources */,
 				4E3F345F1DC6F7CB00655A2C /* StoreHeaderCollectionReusableView.swift in Sources */,
 				4E74A48B1DCC417300490A78 /* addAddress.swift in Sources */,
+				4E0ED4DA1DD0459C00D699B7 /* BackToHomeRight.swift in Sources */,
 				4EACD3FA1DC98E4700B07669 /* ProfileView.swift in Sources */,
 				4E74A49A1DCC45B300490A78 /* ViewControllerPopUp.swift in Sources */,
 				4E74A4881DCC405900490A78 /* AddressGalleryView.swift in Sources */,

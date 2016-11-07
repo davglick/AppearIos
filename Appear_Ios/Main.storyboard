@@ -502,7 +502,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="fjJ-m4-sbt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1ZC-fK-qsP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1ZC-fK-qsP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -636,7 +636,8 @@
                                         <color key="backgroundColor" red="0.27191604990000001" green="0.81416887039999997" blue="0.34751035699999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="tick"/>
                                         <connections>
-                                            <action selector="dismissSecondVC:" destination="P4M-y6-hrM" eventType="touchUpInside" id="HvV-eO-J8d"/>
+                                            <action selector="dismissSecondVC:" destination="P4M-y6-hrM" eventType="touchUpInside" id="5fS-Vo-TII"/>
+                                            <action selector="done:" destination="P4M-y6-hrM" eventType="touchUpInside" id="9ze-XH-4ZR"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -694,14 +695,14 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-WX-Ifa">
-                                                            <rect key="frame" x="34.5" y="12.5" width="269.5" height="30.5"/>
+                                                            <rect key="frame" x="34.5" y="12" width="269.5" height="30.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
                                                             <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tick_address" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-qZ-Xqe">
-                                                            <rect key="frame" x="10" y="23" width="10.5" height="8.5"/>
+                                                            <rect key="frame" x="9.5" y="22.5" width="10.5" height="8.5"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
