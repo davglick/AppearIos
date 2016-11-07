@@ -8,17 +8,51 @@
 
 import UIKit
 import CoreData
+import Firebase
+import FBSDKCoreKit
+import FBSDKLoginKit
+import GoogleMaps
+import GooglePlaces
+import GoogleMapsCore
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
+    let googleMapsApiKey = "AIzaSyBsa7G80kOcOMmtVdyDbl5HMfH7qZEtR9E"
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
+       
+        
+        GMSServices.provideAPIKey("AIzaSyBsa7G80kOcOMmtVdyDbl5HMfH7qZEtR9E")
+        GMSPlacesClient.provideAPIKey("AIzaSyD4Aip5P67auljQw5WT8PnBkOrf-GFe3dQ")
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
         return true
+        
+        
     }
+    
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
+        let handle = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        
+        return handle
+  
+
+    }
+
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
