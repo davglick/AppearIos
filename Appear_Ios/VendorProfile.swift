@@ -80,10 +80,7 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         
         let shopifyURL = "https://\(self.store.APIToken!)@\(self.store.StoreDomain!).myshopify.com/admin/products.json?fields=id,sku,images,title,vendor,variants,product_type,body_html,options"
-        
-        
-        
-        
+    
         
         Alamofire.request(shopifyURL).responseJSON { (response) -> Void in
             
@@ -105,11 +102,7 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         }
     }
     
-   
-    func collectionView(collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: productCollection.frame.size.width/2.00534759, height: productCollection.frame.size.height/2.22333333)
-    }
+    
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 1
@@ -128,6 +121,12 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
     }
     
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        return CGSize(width: productCollection.frame.size.width/2.00534759, height: productCollection.frame.size.height/2.22333333)
+   
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -140,7 +139,7 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         let cell = productCollection.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
        let url = NSURL(string: self.products[indexPath.row].image[0]!)
-        cell.image.sd_setImage(with: url as URL!, placeholderImage: nil, options: .refreshCached)
+        cell.image.sd_setImage(with: url as URL!, placeholderImage: #imageLiteral(resourceName: "whiteSQR"), options: .refreshCached)
         cell.title.text = self.products[indexPath.row].title!
         cell.vendor.text = self.products[indexPath.row].vendor!
         cell.price.text = "$\(self.products[indexPath.row].price!)"
@@ -212,7 +211,41 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         
     }
     
-           }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        /*
+      
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductView") as! ProductViewController
+                self.addChildViewController(vc)
+                vc.view.frame = self.view.frame
+                self.view.addSubview(vc.view)
+                vc.didMove(toParentViewController: self)
+                vc.product = self.products[indexPath.row]
+                vc.imageDisplay = self.store.imageDisplay
+                vc.product.vendorID = self.store.key!
+                //vc.delegate = self
+        
+                 print(vc.product.title)
+        
+        
+            }
+            
+           // self.navigationController?.pushViewController(vc, animated: false)
+        }
+ 
+ */
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "ProductView") as! ProductViewController
+        vc.product = self.products[indexPath.row]
+        vc.imageDisplay = self.store.imageDisplay
+        vc.product.vendorID = self.store.key!
+      
+       
+        self.navigationController?.pushViewController(vc, animated: false)
+}
+
+}
 
 
 

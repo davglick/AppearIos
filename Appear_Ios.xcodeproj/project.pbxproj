@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E0D9CBC1DD1454300E59D3B /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0D9CBB1DD1454300E59D3B /* ProductViewController.swift */; };
+		4E0D9CBE1DD1462400E59D3B /* CustomproductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D9CBD1DD1462400E59D3B /* CustomproductView.xib */; };
+		4E0D9CC01DD146B200E59D3B /* CustomProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0D9CBF1DD146B200E59D3B /* CustomProductCollectionViewCell.swift */; };
+		4E0D9CC21DD28AEF00E59D3B /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D9CC11DD28AEF00E59D3B /* Montserrat-Regular.ttf */; };
 		4E0ED4DA1DD0459C00D699B7 /* BackToHomeRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */; };
 		4E135A7E1DCF0E9C0098CA94 /* AddressMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E135A7D1DCF0E9C0098CA94 /* AddressMapView.swift */; };
 		4E135A811DCF0F9E0098CA94 /* Pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A801DCF0F9E0098CA94 /* Pop.mp3 */; };
@@ -54,6 +58,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E0D9CBB1DD1454300E59D3B /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		4E0D9CBD1DD1462400E59D3B /* CustomproductView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomproductView.xib; sourceTree = "<group>"; };
+		4E0D9CBF1DD146B200E59D3B /* CustomProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProductCollectionViewCell.swift; sourceTree = "<group>"; };
+		4E0D9CC11DD28AEF00E59D3B /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../Downloads/Fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackToHomeRight.swift; sourceTree = "<group>"; };
 		4E135A7D1DCF0E9C0098CA94 /* AddressMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressMapView.swift; sourceTree = "<group>"; };
 		4E135A801DCF0F9E0098CA94 /* Pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Pop.mp3; path = ../../Downloads/Pop.mp3; sourceTree = "<group>"; };
@@ -81,7 +89,6 @@
 		4E3F34521DC5A6DF00655A2C /* VCR_OSD_MONO.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = VCR_OSD_MONO.ttf; path = /Users/davinglick/Desktop/AppearLoginProfile/../../Downloads/VCR_OSD_MONO.ttf; sourceTree = "<absolute>"; };
 		4E3F34541DC5A6E600655A2C /* SFNSDisplay.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SFNSDisplay.ttf; path = ../../../../System/Library/Fonts/SFNSDisplay.ttf; sourceTree = "<group>"; };
 		4E3F34551DC5A6EE00655A2C /* GothamHTF-Book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "GothamHTF-Book.ttf"; path = "/Users/davinglick/Desktop/AppearLoginProfile/../../Downloads/iOSAppearApp-master 2/GothamHTF-Book.ttf"; sourceTree = "<absolute>"; };
-		4E3F34571DC5A6F500655A2C /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../Downloads/iOSAppearApp-master 2/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		4E3F34581DC5A6FB00655A2C /* SF-UI-Text-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SF-UI-Text-Medium.otf"; path = "../../Downloads/SF UI/SF-UI-Text/SF-UI-Text-Medium.otf"; sourceTree = "<group>"; };
 		4E3F34591DC5A6FF00655A2C /* Blair ITC Std.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Blair ITC Std.ttf"; path = "/Users/davinglick/Desktop/AppearLoginProfile/../../Downloads/OnlineWebFonts_COM_96ca96347d9b4ebe52536769ecb40e6f/Blair ITC Std/Blair ITC Std.ttf"; sourceTree = "<absolute>"; };
 		4E3F345B1DC5A70500655A2C /* syncopate-regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "syncopate-regular.ttf"; path = "../../Downloads/iOSAppearApp-master 2/syncopate-regular.ttf"; sourceTree = "<group>"; };
@@ -131,6 +138,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4E0D9CBA1DD1451000E59D3B /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				4E89B3481DC859600031673B /* LineItem.swift */,
+				4E29FECB1DC45FB100F0AA06 /* Option.swift */,
+				4E29FEC91DC45F8900F0AA06 /* Product.swift */,
+				4E0D9CBB1DD1454300E59D3B /* ProductViewController.swift */,
+				4E0D9CBF1DD146B200E59D3B /* CustomProductCollectionViewCell.swift */,
+				4E0D9CBD1DD1462400E59D3B /* CustomproductView.xib */,
+			);
+			name = Product;
+			sourceTree = "<group>";
+		};
 		4E135A7F1DCF0F880098CA94 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,13 +189,13 @@
 				4E1D257D1DC336A700F6EF6E /* AppDelegate.swift */,
 				4E1D257F1DC336A700F6EF6E /* ViewController.swift */,
 				4EACD3F51DC98D9E00B07669 /* ScrollView */,
+				4E0D9CBA1DD1451000E59D3B /* Product */,
 				4E29FEC61DC45F0C00F0AA06 /* Vendor Profile */,
 				4E74A4891DCC412800490A78 /* User Address Gallery */,
 				4E29FEC51DC45EF800F0AA06 /* Store List */,
 				4EACD3F81DC98E3100B07669 /* User Profile */,
 				4EACD3FB1DC9919600B07669 /* Shopping Bag */,
 				4E74A4901DCC42BC00490A78 /* Segue Animation Classes */,
-				4E1D259A1DC3394900F6EF6E /* storeProfileCell.xib */,
 				4EACD4081DCABF6A00B07669 /* Main.storyboard */,
 				4E1D25871DC336A700F6EF6E /* Assets.xcassets */,
 				4E1D25891DC336A700F6EF6E /* LaunchScreen.storyboard */,
@@ -190,6 +210,7 @@
 		4E29FEC51DC45EF800F0AA06 /* Store List */ = {
 			isa = PBXGroup;
 			children = (
+				4E1D259A1DC3394900F6EF6E /* storeProfileCell.xib */,
 				4E1D25A01DC33DC200F6EF6E /* StoreProfileList.swift */,
 				4E1D259C1DC33D2000F6EF6E /* Vendor.swift */,
 				4E1D25981DC3389B00F6EF6E /* StoreProfile.swift */,
@@ -202,9 +223,6 @@
 			children = (
 				4E3B77EE1DC7FF3A009B9A3B /* Appear_Ios-Bridging-Header.h */,
 				4E29FEC71DC45F4200F0AA06 /* VendorProfile.swift */,
-				4E29FEC91DC45F8900F0AA06 /* Product.swift */,
-				4E89B3481DC859600031673B /* LineItem.swift */,
-				4E29FECB1DC45FB100F0AA06 /* Option.swift */,
 				4E3F345E1DC6F7CB00655A2C /* StoreHeaderCollectionReusableView.swift */,
 				4E29FECD1DC45FE400F0AA06 /* ProductCell.swift */,
 				4E29FECF1DC4601B00F0AA06 /* ProductViewCell.xib */,
@@ -219,8 +237,8 @@
 				4E3F345B1DC5A70500655A2C /* syncopate-regular.ttf */,
 				4E3F34591DC5A6FF00655A2C /* Blair ITC Std.ttf */,
 				4E3F34581DC5A6FB00655A2C /* SF-UI-Text-Medium.otf */,
-				4E3F34571DC5A6F500655A2C /* Montserrat-Regular.ttf */,
 				4E3F34541DC5A6E600655A2C /* SFNSDisplay.ttf */,
+				4E0D9CC11DD28AEF00E59D3B /* Montserrat-Regular.ttf */,
 				4E3F34521DC5A6DF00655A2C /* VCR_OSD_MONO.ttf */,
 			);
 			name = Fonts;
@@ -357,7 +375,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E1D259B1DC3394900F6EF6E /* storeProfileCell.xib in Resources */,
+				4E0D9CBE1DD1462400E59D3B /* CustomproductView.xib in Resources */,
 				4E135A831DCF0FAF0098CA94 /* swish.mp3 in Resources */,
+				4E0D9CC21DD28AEF00E59D3B /* Montserrat-Regular.ttf in Resources */,
 				4E1D258B1DC336A700F6EF6E /* LaunchScreen.storyboard in Resources */,
 				4E135A851DCF0FB60098CA94 /* swipe.mp3 in Resources */,
 				4E29FED01DC4601B00F0AA06 /* ProductViewCell.xib in Resources */,
@@ -430,6 +450,7 @@
 				4E74A4961DCC44D100490A78 /* User.swift in Sources */,
 				4EACD4171DCBF7D100B07669 /* SegueTransition.swift in Sources */,
 				4E89B3491DC859600031673B /* LineItem.swift in Sources */,
+				4E0D9CC01DD146B200E59D3B /* CustomProductCollectionViewCell.swift in Sources */,
 				4E74A4841DCC366A00490A78 /* LeftToRightSegue.swift in Sources */,
 				4E1D25801DC336A700F6EF6E /* ViewController.swift in Sources */,
 				4E29FECA1DC45F8900F0AA06 /* Product.swift in Sources */,
@@ -438,6 +459,7 @@
 				4E1D25A11DC33DC200F6EF6E /* StoreProfileList.swift in Sources */,
 				4E1D257E1DC336A700F6EF6E /* AppDelegate.swift in Sources */,
 				4EACD3FF1DC9967800B07669 /* UserView.swift in Sources */,
+				4E0D9CBC1DD1454300E59D3B /* ProductViewController.swift in Sources */,
 				4E3F345F1DC6F7CB00655A2C /* StoreHeaderCollectionReusableView.swift in Sources */,
 				4E74A48B1DCC417300490A78 /* addAddress.swift in Sources */,
 				4E0ED4DA1DD0459C00D699B7 /* BackToHomeRight.swift in Sources */,

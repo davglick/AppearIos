@@ -24,6 +24,77 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Product View Controller-->
+        <scene sceneID="lCJ-0Z-3lC">
+            <objects>
+                <viewController storyboardIdentifier="ProductView" id="oZv-iN-0f7" customClass="ProductViewController" customModule="Appear_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ASf-67-fMr"/>
+                        <viewControllerLayoutGuide type="bottom" id="gbH-6G-ofd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C1U-8g-V4I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Wd-Y0-pZ3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.25836552573248728" green="0.13495282398027328" blue="0.23825714695589059" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="tUN-CR-iE2">
+                                    <size key="itemSize" width="375" height="519"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="oZv-iN-0f7" id="93q-eC-s4D"/>
+                                    <outlet property="delegate" destination="oZv-iN-0f7" id="nnN-p8-MYm"/>
+                                </connections>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Yer-ji-lCv">
+                                <rect key="frame" x="168" y="539" width="39" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="pageIndicatorTintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </pageControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="An2-Sw-RNX">
+                                <rect key="frame" x="0.0" y="581" width="375" height="42"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="a3Z-Ge-kaa" kind="embed" id="7g0-Mh-Tip"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQr-Yl-P8M">
+                                <rect key="frame" x="0.0" y="621" width="375" height="46"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.11023854763024447" green="0.11217405174956449" blue="0.12119289340101524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="ADD TO CART"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btg-Eg-rW8">
+                                <rect key="frame" x="319" y="10" width="56" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Xcross"/>
+                                <connections>
+                                    <action selector="backButtonWithSender:" destination="oZv-iN-0f7" eventType="touchUpInside" id="lTH-od-iKI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="AddToCart" destination="MQr-Yl-P8M" id="mKF-Ky-Q04"/>
+                        <outlet property="closeX" destination="btg-Eg-rW8" id="t5W-V0-l9E"/>
+                        <outlet property="pageControll" destination="Yer-ji-lCv" id="iCG-Wn-SGL"/>
+                        <outlet property="productCollectionView" destination="1Wd-Y0-pZ3" id="u6W-2p-opc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mQO-5q-HXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="-2284.4077961019493"/>
+        </scene>
         <!--Vendor Profile-->
         <scene sceneID="f3Q-6l-KJn">
             <objects>
@@ -46,7 +117,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6iu-5f-fra">
+                                <label key="backgroundView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  LOADING..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6iu-5f-fra">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="VCROSDMono" family="VCR OSD Mono" pointSize="15"/>
@@ -54,14 +125,14 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="vBD-NK-2M7">
-                                        <rect key="frame" x="0.0" y="146" width="187" height="315"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" layoutMarginsFollowReadableWidth="YES" id="CX9-sX-HJD">
+                                        <rect key="frame" x="0.0" y="146" width="186" height="316"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="187" height="315"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="186" height="316"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.78039215689999997" green="0.78039215689999997" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <size key="customSize" width="186" height="316"/>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="header" id="Ubf-VO-pQO" customClass="StoreHeaderCollectionReusableView" customModule="Appear_Ios" customModuleProvider="target">
@@ -101,7 +172,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ua-vX-jgS">
                                 <rect key="frame" x="166" y="594" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.59693890080000001" green="0.6028491869" blue="0.6028491869" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.2558325303821688" green="0.25836552573248728" blue="0.25836552573248728" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" image="pullDownArrow@1x"/>
                                 <connections>
                                     <action selector="backToStores:" destination="Tfg-WU-tt9" eventType="touchUpInside" id="tLT-ia-fFV"/>
@@ -797,7 +868,7 @@
                                         <rect key="frame" x="2" y="211.5" width="293" height="32"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <state key="normal" title="Logout">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -874,11 +945,53 @@
             </objects>
             <point key="canvasLocation" x="-2578" y="-1582"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="3T1-jR-7Zr">
+            <objects>
+                <viewController id="a3Z-Ge-kaa" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qch-yk-xkr"/>
+                        <viewControllerLayoutGuide type="bottom" id="2z8-Zi-qRR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Idk-nG-fNj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="42"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUe-ZD-uEu">
+                                <rect key="frame" x="3" y="0.0" width="177" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="Info">
+                                    <color key="titleColor" red="0.5725490196078431" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmZ-00-E2f">
+                                <rect key="frame" x="198" y="0.0" width="177" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                <state key="normal" title="Size">
+                                    <color key="titleColor" red="0.5725490196078431" green="0.58039215686274503" blue="0.58039215686274503" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Al-TY-sKY">
+                                <rect key="frame" x="188" y="14" width="2" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.72519975900650024" green="0.73341125249862671" blue="0.73333615064620972" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vfq-iK-9Ix" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="924" y="-2050.0749625187409"/>
+        </scene>
     </scenes>
     <resources>
         <image name="NoBag" width="61" height="76"/>
         <image name="NoCartBack" width="22" height="19"/>
         <image name="ShoppingBag" width="18" height="22"/>
+        <image name="Xcross" width="22" height="22"/>
         <image name="add" width="22" height="22"/>
         <image name="profilePicture" width="22" height="22"/>
         <image name="pullDownArrow@1x" width="22" height="6"/>
