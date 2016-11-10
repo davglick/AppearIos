@@ -79,7 +79,9 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
     func loadStore() {
         
         
-        let shopifyURL = "https://\(self.store.APIToken!)@\(self.store.StoreDomain!).myshopify.com/admin/products.json?fields=id,sku,images,title,vendor,variants,product_type,body_html,options"
+        let shopifyURL = "https://\(self.store.APIToken!)@\(self.store.StoreDomain!).myshopify.com/admin/products.json?&limit=250"
+        
+        //fields=id,sku,images,title,vendor,variants,product_type,body_html,options,published_scope/"
     
         
         Alamofire.request(shopifyURL).responseJSON { (response) -> Void in
@@ -88,6 +90,7 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
             
             if let value = response.result.value {
                 
+                
                 let json = JSON(value)
                 var x = [Product]()
                 for test in json["products"] {
@@ -95,8 +98,13 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
                     x.append(product)
                     
                 }
+                
                 self.products = x
                 self.productCollection.reloadData()
+                
+                
+                
+               
             }
             
         }
@@ -132,10 +140,11 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         return products.count
         
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell  {
-        
+       
         let cell = productCollection.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
        let url = NSURL(string: self.products[indexPath.row].image[0]!)
@@ -143,9 +152,12 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         cell.title.text = self.products[indexPath.row].title!
         cell.vendor.text = self.products[indexPath.row].vendor!
         cell.price.text = "$\(self.products[indexPath.row].price!)"
+       // cell.vendor.text = self.products[indexPath.row].published_at
+        
+        
         
         return cell
-        
+      
     }
     
     func showAnimate()

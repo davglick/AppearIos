@@ -19,9 +19,7 @@ class AddressGalleryView: UIViewController, UIViewControllerTransitioningDelegat
     var gravity: UIGravityBehavior!
     var animator: UIDynamicAnimator!
     
-    
-    
-    
+ 
     let addressMapView = AddressMapView()
     
     let transition = CircularTransition()
@@ -144,36 +142,9 @@ class AddressGalleryView: UIViewController, UIViewControllerTransitioningDelegat
     }
     
     
+   
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let mapViewVC = segue.destination as! AddressMapView
-        mapViewVC.transitioningDelegate = self
-        mapViewVC.modalPresentationStyle = .custom
-        
-        
-    }
-    
-    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        transition.transitionMode = .present
-        transition.startingPoint = addAddressButton.center
-        transition.circleColor = addAddressButton.backgroundColor!
-        
-        return transition
-        
-    }
-    
-    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        
-        transition.transitionMode = .dismiss
-        transition.startingPoint = addAddressButton.center
-        transition.circleColor = addAddressButton.backgroundColor!
-        
-        return transition
-        
-    }
-    
     
     
     @IBAction func closeAddressPopUp(_ sender: AnyObject) {
@@ -251,6 +222,16 @@ class AddressGalleryView: UIViewController, UIViewControllerTransitioningDelegat
             
             
         }
+        
+    }
+    
+    @IBAction func addNewAddress(_ sender: Any) {
+        
+        let toMap = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddressMapView") as! AddressMapView
+        self.addChildViewController(toMap)
+        toMap.view.frame = self.view.frame
+        self.view.addSubview(toMap.view)
+        toMap.didMove(toParentViewController: self)
         
     }
     

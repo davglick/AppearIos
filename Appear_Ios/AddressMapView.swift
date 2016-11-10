@@ -32,12 +32,14 @@ class AddressMapView: UIViewController,CLLocationManagerDelegate  {
     
     @IBOutlet var addressLabel: UILabel!
     
+    @IBOutlet var removeViewX: UIButton!
+    
     var selectedAddress = String()
     var GeoCoordinate = String()
     
     var addresses = [addAddress]()
     
-    let transition = CircularTransition()
+    
     
     
     var DBref: FIRDatabaseReference! {
@@ -46,6 +48,11 @@ class AddressMapView: UIViewController,CLLocationManagerDelegate  {
     }
     
     
+    @IBAction func closeX(_ sender: Any) {
+        
+        self.view.removeFromSuperview()
+        
+    }
     
     
     // Present the Autocomplete view controller when the button is pressed.
@@ -201,9 +208,7 @@ extension AddressMapView: GMSAutocompleteViewControllerDelegate {
     
     @IBAction func dismissSecondVC(_ sender: AnyObject) {
 
-        
-    
-        
+
         if let user = FIRAuth.auth()?.currentUser {
     
             // DBref = FIRDatabase.database().reference()
@@ -264,21 +269,20 @@ extension AddressMapView: GMSAutocompleteViewControllerDelegate {
                 }
             }
             
-        }
-            
-            self.dismiss(animated: true, completion: nil)
+               self.view.removeFromSuperview()
 
-    }
+            }
+
+        }
+        
     
-}
-    
-    override func didReceiveMemoryWarning() {
+    func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
         
     }
-    
-    
-    
-}
 
+    
+   }
+
+}

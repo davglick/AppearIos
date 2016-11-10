@@ -25,6 +25,7 @@ class Product: NSObject {
     var quantity: Int = 0
     var option: Option?
     var cartToken: String?
+    var published_at: String? = "nil"
     
     convenience init(store: JSON) {
         self.init()
@@ -41,9 +42,8 @@ class Product: NSObject {
         body_html = store["body_html"].string//potentially add when click info button
         //options = store["options"]
         variants = store["variants"]
-    }
-    
+        published_at = store["published_at"].string
+ }
+
 }
-
-
  

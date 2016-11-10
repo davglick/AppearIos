@@ -73,7 +73,8 @@ class FacebookLoginPopUp: UIViewController, FBSDKLoginButtonDelegate{
                 print("Successfully logged in the user:", user ?? "")
 
                 self.loginButton.isHidden = true
-                self.view.removeFromSuperview()
+                
+                self.removeView()
                 
             })
             
@@ -93,9 +94,20 @@ class FacebookLoginPopUp: UIViewController, FBSDKLoginButtonDelegate{
             
 
         }
- 
+        
         
     }
+    
+    func removeView() {
+        
+        let transition = CATransition()
+        transition.duration = 0.1
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        transition.type = kCATransitionFade
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        _ = self.navigationController?.popToRootViewController(animated: false)
+    }
+
 
 }
 
