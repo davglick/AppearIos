@@ -43,14 +43,16 @@ class ViewProfilePopUp: UIViewController {
         
         // Go back to the login screen
 
+        /*
         let FBPop = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FacebookLogin") as! FacebookLoginPopUp
         self.addChildViewController(FBPop)
         FBPop.view.frame = self.view.frame
         self.view.addSubview(FBPop.view)
         FBPop.didMove(toParentViewController: self)
+        */
         
-
-        
+        removeView()
+      
         let LogoutSound = Bundle.main.path(forResource: "Pop", ofType: "mp3")
         
         if let LogoutSound = LogoutSound {
@@ -178,6 +180,16 @@ class ViewProfilePopUp: UIViewController {
         animateOut()
     }
     
+    func removeView() {
+        
+        let transition = CATransition()
+        transition.duration = 0.1
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        transition.type = kCATransitionFade
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        _ = self.navigationController?.popToRootViewController(animated: false)
+    }
+
     
 }
 

@@ -42,6 +42,13 @@ class ShoppingBag: UIViewController {
     }
     
     @IBAction func backButton(_ sender: AnyObject) {
+  
+        let transition = CATransition()
+        transition.duration = 0.1
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        transition.type = kCATransitionFade
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        _ = self.navigationController?.popToRootViewController(animated: false)
         
         
         

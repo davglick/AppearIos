@@ -14,7 +14,7 @@ import SDWebImage
 
 
 
-class StoreProfile: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StoreProfile: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
     
     @IBOutlet var profilePicture: UIBarButtonItem!
     
@@ -27,21 +27,66 @@ class StoreProfile: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet var list: UITableView!
     
-    var ThescrollView: UIScrollView!
+    @IBOutlet var profilePic: UIImageView!
     
+    @IBOutlet var bag: UIImageView!
+
     var stores = [Vendor]()
     var databaseRef: FIRDatabaseReference!
     var storage: FIRStorageReference!
     var transitionManager = MenuTransitionManager()
     
+    
     override func viewWillAppear(_ animated: Bool) {
         
         loadStores()
         
-    }
-    
-    
+        
+        // create the users facebook profile picture if logged in
+        if let user = FIRAuth.auth()?.currentUser {
+            
+            let photoUrl = user.photoURL
+            
+            let data = NSData(contentsOf: photoUrl!)
+            self.profilePic.image = UIImage(data: data! as Data)
+            
+            self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2
+            self.profilePic.layer.borderColor = UIColor(red: 160/255, green: 160/255, blue: 159/255, alpha: 1).cgColor
+            self.profilePic.layer.borderWidth = 0.75
+            self.profilePic.clipsToBounds = true
+            
+        } else {
+            
+            if FIRAuth.auth()?.currentUser == nil {
+                
+               self.profilePic.image = #imageLiteral(resourceName: "profileIconStore")
+               self.profilePic.layer.borderWidth = 0
+                
+            }
+        }
+        
+        
+        // make profile picture a button 
+        
+        profilePic.isUserInteractionEnabled = true
+        
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(img:)))
+        singleTap.numberOfTapsRequired = 1;
+        profilePic.addGestureRecognizer(singleTap)
+        
+        
+        
+        // make bag a button
+        
+        bag.isUserInteractionEnabled = true
+        
+        let touch: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(bagTapped(img:)))
+        touch.numberOfTapsRequired = 1;
+        bag.addGestureRecognizer(touch)
 
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,14 +145,17 @@ class StoreProfile: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     // **************** Segue to user profile section *************** //
     
-    func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+    
+   // func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         
-        let menu = segue.destination as! ProfileView
-        menu.transitioningDelegate = self.transitionManager
+     
+        
+   //   let menu = segue.destination as! ProfileView
+   //    menu.transitioningDelegate = self.transitionManager
+   
         
         
-        
-    }
+  //  }
     
     
     
@@ -125,6 +173,22 @@ class StoreProfile: UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
+    
+    // give profile pic a segue
+    
+    func imageTapped(img: AnyObject)
+    {
+       performSegue(withIdentifier: "presentProfile", sender: nil)
+    }
+
+
+// give bag a segue
+
+func bagTapped(img: AnyObject)
+{
+    performSegue(withIdentifier: "showBag", sender: nil)
+    
+}
     func loadStores() {
         // Call to firebase DB and get stores to load
         

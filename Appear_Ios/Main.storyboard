@@ -285,17 +285,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" white="0.0" alpha="0.85094713180000003" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <navigationItem id="xnv-XS-FjC">
-                                        <barButtonItem key="leftBarButtonItem" image="userIcon" id="Zpi-Z8-Xt9">
-                                            <color key="tintColor" red="0.41176470590000003" green="0.41568627450000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <segue destination="4fu-Hv-Woq" kind="show" customClass="LeftToRightSegue" customModule="Appear_Ios" customModuleProvider="target" id="OEm-Ac-hJM"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="ShoppingBag" id="jBl-zT-bWo">
-                                            <color key="tintColor" red="0.41176470590000003" green="0.41568627450000001" blue="0.41568627450000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem id="xnv-XS-FjC"/>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ua-vX-jgS">
@@ -307,16 +297,26 @@
                                     <action selector="backToStores:" destination="Tfg-WU-tt9" eventType="touchUpInside" id="tLT-ia-fFV"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profileIconStore" translatesAutoresizingMaskIntoConstraints="NO" id="BAS-8J-lKf">
+                                <rect key="frame" x="15" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bag-1" translatesAutoresizingMaskIntoConstraints="NO" id="PjX-YG-ceB">
+                                <rect key="frame" x="342" y="9" width="22" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="backToStores" destination="4Ua-vX-jgS" id="PPo-eG-xUw"/>
+                        <outlet property="bag" destination="PjX-YG-ceB" id="ZVV-Wc-yp5"/>
                         <outlet property="navigationBar" destination="7lp-Kn-PHQ" id="kFv-1l-ecS"/>
                         <outlet property="productCollection" destination="8Nw-8R-kzv" id="ZtJ-UP-ZAP"/>
-                        <outlet property="profile" destination="Zpi-Z8-Xt9" id="qiL-Ru-ove"/>
-                        <outlet property="shoppingBag" destination="jBl-zT-bWo" id="Kqj-fk-QYW"/>
+                        <outlet property="profilePic" destination="BAS-8J-lKf" id="Z4t-Yh-YXf"/>
+                        <segue destination="4fu-Hv-Woq" kind="show" identifier="showProfile" customClass="LeftToRightSegue" customModule="Appear_Ios" customModuleProvider="target" id="yE3-y4-4wd"/>
+                        <segue destination="jRF-QO-5gx" kind="show" identifier="showBag" id="nkb-x3-Nez"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v9F-4A-vhP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -348,19 +348,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem id="jDe-by-snD">
-                                        <barButtonItem key="leftBarButtonItem" image="userIcon" id="ssa-zQ-D5D">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <connections>
-                                                <segue destination="4fu-Hv-Woq" kind="show" identifier="presentProfile" customClass="LeftToRightSegue" customModule="Appear_Ios" customModuleProvider="target" id="xzr-H4-bcj"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" image="ShoppingBag" id="wTB-QD-Sl9">
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem id="jDe-by-snD"/>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profileIconStore" translatesAutoresizingMaskIntoConstraints="NO" id="gOh-3T-cS0">
+                                <rect key="frame" x="14" y="5" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bag-1" translatesAutoresizingMaskIntoConstraints="NO" id="Mte-Es-1n5">
+                                <rect key="frame" x="347" y="5" width="22" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -373,9 +371,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bag" destination="Mte-Es-1n5" id="2ko-fc-R1z"/>
                         <outlet property="list" destination="3Uo-TW-PPG" id="DDH-p1-C5h"/>
                         <outlet property="navigationBarrrrr" destination="ZQS-9c-90K" id="bl0-sd-cZK"/>
-                        <outlet property="profilePicture" destination="ssa-zQ-D5D" id="TlF-hd-DdO"/>
+                        <outlet property="profilePic" destination="gOh-3T-cS0" id="kbq-ok-9BB"/>
+                        <outlet property="profilePicture" destination="gOh-3T-cS0" id="yvO-X3-PO8"/>
+                        <segue destination="4fu-Hv-Woq" kind="show" identifier="presentProfile" customClass="LeftToRightSegue" customModule="Appear_Ios" customModuleProvider="target" id="Ei4-BZ-Cla"/>
+                        <segue destination="jRF-QO-5gx" kind="show" identifier="showBag" id="tdO-dT-JYS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFh-9C-SXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -385,7 +387,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="140" y="-880"/>
+            <point key="canvasLocation" x="173.59999999999999" y="-880.20989505247383"/>
         </scene>
         <!--profileVC-->
         <scene sceneID="ocW-2F-6md">
@@ -399,10 +401,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yTn-in-lma">
-                                <rect key="frame" x="14" y="95" width="343" height="105"/>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4E1-8F-1yP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="S90-cV-dbN">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <vibrancyEffect>
+                                    <blurEffect style="dark"/>
+                                </vibrancyEffect>
+                            </visualEffectView>
+                            <containerView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yTn-in-lma">
+                                <rect key="frame" x="14" y="104" width="343" height="96"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="0.97999999999999998" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="I4R-UP-AiT" kind="embed" id="ckc-31-SXv"/>
                                 </connections>
@@ -458,7 +471,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="JBK-sQ-S6K">
-                                        <barButtonItem key="rightBarButtonItem" image="store" id="A8q-Qe-w1I">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" image="store" id="A8q-Qe-w1I">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
                                                 <segue destination="j2F-iK-aI4" kind="unwind" animates="NO" unwindAction="unwindToViewControllerWithSender:" id="694-eP-X6G"/>
@@ -467,8 +480,12 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="6T0-tr-fgg">
+                                <rect key="frame" x="152" y="17" width="70" height="10"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.85316486074234632" green="0.85316486074234632" blue="0.85316486074234632" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.47002237920000001" green="0.47002237920000001" blue="0.47002237920000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Lox-ZW-7yg"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -485,7 +502,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9M2-Y1-l52" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="j2F-iK-aI4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-887.20000000000005" y="-1581.8590704647677"/>
+            <point key="canvasLocation" x="-644" y="-1583"/>
         </scene>
         <!--Profile View-->
         <scene sceneID="bug-Ea-phE">
@@ -496,11 +513,11 @@
                         <viewControllerLayoutGuide type="bottom" id="C03-uH-qea"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xSZ-4e-vwt">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="105"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="96"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02U-Ub-XHX">
-                                <rect key="frame" x="172" y="30" width="0.0" height="45"/>
+                                <rect key="frame" x="172" y="30" width="0.0" height="36"/>
                                 <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="15"/>
                                 <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -676,14 +693,6 @@
                                 <rect key="frame" x="174" y="265" width="27" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMH-Qf-i0b">
-                                <rect key="frame" x="164" y="467" width="46" height="71"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="next:" destination="jRF-QO-5gx" eventType="touchUpInside" id="cGc-tL-rFA"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -695,14 +704,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gOg-1z-xJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1481" y="-880"/>
+            <point key="canvasLocation" x="940" y="-1576"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ba3-hb-gkc">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="fjJ-m4-sbt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1ZC-fK-qsP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1ZC-fK-qsP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -737,35 +746,35 @@
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xoZ-Zj-B78">
                                             <rect key="frame" x="325" y="0.0" width="50" height="48"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" image="store"/>
+                                            <state key="normal" image="Xcross"/>
                                             <connections>
                                                 <segue destination="M51-eM-3zJ" kind="unwind" animates="NO" unwindAction="unwindToViewControllerWithSender:" id="XWV-8r-J2M"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V79-ls-BxM">
-                                            <rect key="frame" x="48" y="228" width="279" height="180"/>
+                                            <rect key="frame" x="26" y="228" width="321" height="146"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="weS-A8-VkE">
-                                                    <rect key="frame" x="121" y="71" width="37" height="37"/>
+                                                    <rect key="frame" x="142" y="52" width="36" height="37.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 </activityIndicatorView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profilePicture" translatesAutoresizingMaskIntoConstraints="NO" id="wiT-0N-pAp">
-                                                    <rect key="frame" x="123.5" y="26" width="29" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login or Register an account with Facebook" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ehs-Qk-7FY">
-                                                    <rect key="frame" x="57" y="71.5" width="163.5" height="36"/>
+                                                    <rect key="frame" x="58" y="53" width="205.5" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
                                                     <color key="textColor" red="0.60364329809999995" green="0.61183542010000003" blue="0.61178117990000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prX-vs-gHU" customClass="FBSDKLoginButton">
-                                                    <rect key="frame" x="0.0" y="145" width="279" height="35"/>
+                                                    <rect key="frame" x="4" y="107" width="313" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.25662901997566223" green="0.37289291620254517" blue="0.67175108194351196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="FBProfile" translatesAutoresizingMaskIntoConstraints="NO" id="wiT-0N-pAp">
+                                                    <rect key="frame" x="125" y="-33" width="70" height="70"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
@@ -784,7 +793,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7P-MC-9T8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="M51-eM-3zJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3487.1999999999998" y="-825.33733133433293"/>
+            <point key="canvasLocation" x="-3439" y="-1584"/>
         </scene>
         <!--Add Delivery Address-->
         <scene sceneID="UpA-Td-2t2">
@@ -905,7 +914,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-WX-Ifa">
                                                             <rect key="frame" x="34.5" y="11.5" width="269.5" height="30.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="14"/>
                                                             <color key="textColor" red="0.47002237916142131" green="0.47002237916142131" blue="0.47002237916142131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1085,11 +1094,15 @@
     </scenes>
     <resources>
         <image name="CrossInfo" width="11" height="11"/>
+        <image name="FBProfile" width="51" height="51"/>
         <image name="NoBag" width="61" height="76"/>
         <image name="NoCartBack" width="22" height="19"/>
+        <image name="Placeholder" width="93" height="14"/>
         <image name="ShoppingBag" width="18" height="22"/>
         <image name="Xcross" width="22" height="22"/>
         <image name="add" width="22" height="22"/>
+        <image name="bag-1" width="39" height="47"/>
+        <image name="profileIconStore" width="37" height="37"/>
         <image name="profilePicture" width="22" height="22"/>
         <image name="pullDownArrow@1x" width="22" height="6"/>
         <image name="search" width="22" height="22"/>
@@ -1100,6 +1113,7 @@
         <image name="visaIcon" width="50" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xzr-H4-bcj"/>
+        <segue reference="nkb-x3-Nez"/>
+        <segue reference="yE3-y4-4wd"/>
     </inferredMetricsTieBreakers>
 </document>

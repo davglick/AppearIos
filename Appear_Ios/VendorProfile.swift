@@ -36,12 +36,17 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     @IBOutlet var backToStores: UIButton!
 
+    @IBOutlet var profilePic: UIImageView!
+  
+    @IBOutlet var bag: UIImageView!
+  
     
     override func viewDidLoad(){
         super.viewDidLoad()
         
-
-           
+        
+        
+     
         
                self.showAnimate()
         
@@ -66,9 +71,48 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         let nib = UINib(nibName: "ProductViewCell", bundle: nil)
         productCollection.register(nib, forCellWithReuseIdentifier: "ProductCell")
         
-   
+        
+        // create the users facebook profile picture if logged in
+        if let user = FIRAuth.auth()?.currentUser {
+            
+            let photoUrl = user.photoURL
+            
+            let data = NSData(contentsOf: photoUrl!)
+            self.profilePic.image = UIImage(data: data! as Data)
+            
+            self.profilePic.layer.cornerRadius = self.profilePic.frame.size.width/2
+            self.profilePic.layer.borderColor = UIColor(red: 160/255, green: 160/255, blue: 159/255, alpha: 1).cgColor
+            self.profilePic.layer.borderWidth = 0.75
+            self.profilePic.clipsToBounds = true
+            
+        } else {
+            
+            if FIRAuth.auth()?.currentUser == nil {
+                
+                self.profilePic.image = #imageLiteral(resourceName: "profileIconStore")
+                self.profilePic.layer.borderWidth = 0
+                
+            }
+        }
+        
+        
+        // make the profile picture image a button
+        profilePic.isUserInteractionEnabled = true
+        
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(img:)))
+        singleTap.numberOfTapsRequired = 1;
+        profilePic.addGestureRecognizer(singleTap)
+        
+        // make bag a button
+        
+        bag.isUserInteractionEnabled = true
+        
+        let touch: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(bagTapped(img:)))
+        touch.numberOfTapsRequired = 1;
+        bag.addGestureRecognizer(touch)
         
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -142,6 +186,24 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         
         
     }
+    
+    // profile segue
+    
+    func imageTapped(img: AnyObject)
+    {
+        performSegue(withIdentifier: "showProfile", sender: nil)
+    }
+    
+    
+    // give bag a segue
+    
+    func bagTapped(img: AnyObject)
+    {
+        performSegue(withIdentifier: "showBag", sender: nil)
+        
+    }
+
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell  {
        
@@ -225,27 +287,6 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        /*
-      
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ProductView") as! ProductViewController
-                self.addChildViewController(vc)
-                vc.view.frame = self.view.frame
-                self.view.addSubview(vc.view)
-                vc.didMove(toParentViewController: self)
-                vc.product = self.products[indexPath.row]
-                vc.imageDisplay = self.store.imageDisplay
-                vc.product.vendorID = self.store.key!
-                //vc.delegate = self
-        
-                 print(vc.product.title)
-        
-        
-            }
-            
-           // self.navigationController?.pushViewController(vc, animated: false)
-        }
- 
- */
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ProductView") as! ProductViewController
