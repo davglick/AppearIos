@@ -203,6 +203,7 @@
 				4E29FEC51DC45EF800F0AA06 /* Store List */,
 				4EACD3F81DC98E3100B07669 /* User Profile */,
 				4EACD3FB1DC9919600B07669 /* Shopping Bag */,
+				4E9A0DEA1DD577EE00313783 /* LaunchScreen */,
 				4E74A4901DCC42BC00490A78 /* Segue Animation Classes */,
 				4EACD4081DCABF6A00B07669 /* Main.storyboard */,
 				4E1D25871DC336A700F6EF6E /* Assets.xcassets */,
@@ -291,6 +292,13 @@
 				4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */,
 			);
 			name = "Segue Animation Classes";
+			sourceTree = "<group>";
+		};
+		4E9A0DEA1DD577EE00313783 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		4EACD3F51DC98D9E00B07669 /* ScrollView */ = {
