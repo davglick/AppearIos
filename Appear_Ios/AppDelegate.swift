@@ -17,6 +17,7 @@ import GoogleMapsCore
 import FirebaseDatabase
 import FirebaseStorage
 import FirebaseAuth
+import Stripe
 
 
 @UIApplicationMain
@@ -31,7 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         FIRDatabase.database().persistenceEnabled = true
        
+       // stripe init 
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_a6IZXKHFufRjmdAlTI2XnSaJ"
         
+        // google init 
         GMSServices.provideAPIKey("AIzaSyBsa7G80kOcOMmtVdyDbl5HMfH7qZEtR9E")
         GMSPlacesClient.provideAPIKey("AIzaSyD4Aip5P67auljQw5WT8PnBkOrf-GFe3dQ")
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

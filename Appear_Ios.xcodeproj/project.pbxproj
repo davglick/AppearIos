@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E02563A1DD99F5F000C90CE /* SuperCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0256391DD99F5F000C90CE /* SuperCart.swift */; };
+		4E02563C1DD9A1C8000C90CE /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02563B1DD9A1C8000C90CE /* Cart.swift */; };
 		4E0D9CBC1DD1454300E59D3B /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0D9CBB1DD1454300E59D3B /* ProductViewController.swift */; };
 		4E0D9CBE1DD1462400E59D3B /* CustomproductView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D9CBD1DD1462400E59D3B /* CustomproductView.xib */; };
 		4E0D9CC01DD146B200E59D3B /* CustomProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0D9CBF1DD146B200E59D3B /* CustomProductCollectionViewCell.swift */; };
@@ -61,6 +63,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E0256391DD99F5F000C90CE /* SuperCart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperCart.swift; sourceTree = "<group>"; };
+		4E02563B1DD9A1C8000C90CE /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		4E0D9CBB1DD1454300E59D3B /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		4E0D9CBD1DD1462400E59D3B /* CustomproductView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomproductView.xib; sourceTree = "<group>"; };
 		4E0D9CBF1DD146B200E59D3B /* CustomProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProductCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -144,6 +148,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4E0256381DD99F44000C90CE /* User Cart */ = {
+			isa = PBXGroup;
+			children = (
+				4E0256391DD99F5F000C90CE /* SuperCart.swift */,
+				4E02563B1DD9A1C8000C90CE /* Cart.swift */,
+			);
+			name = "User Cart";
+			sourceTree = "<group>";
+		};
 		4E0D9CBA1DD1451000E59D3B /* Product */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,12 +211,12 @@
 				4E1D257F1DC336A700F6EF6E /* ViewController.swift */,
 				4EACD3F51DC98D9E00B07669 /* ScrollView */,
 				4E0D9CBA1DD1451000E59D3B /* Product */,
+				4E0256381DD99F44000C90CE /* User Cart */,
 				4E29FEC61DC45F0C00F0AA06 /* Vendor Profile */,
 				4E74A4891DCC412800490A78 /* User Address Gallery */,
 				4E29FEC51DC45EF800F0AA06 /* Store List */,
 				4EACD3F81DC98E3100B07669 /* User Profile */,
 				4EACD3FB1DC9919600B07669 /* Shopping Bag */,
-				4E9A0DEA1DD577EE00313783 /* LaunchScreen */,
 				4E74A4901DCC42BC00490A78 /* Segue Animation Classes */,
 				4EACD4081DCABF6A00B07669 /* Main.storyboard */,
 				4E1D25871DC336A700F6EF6E /* Assets.xcassets */,
@@ -292,13 +305,6 @@
 				4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */,
 			);
 			name = "Segue Animation Classes";
-			sourceTree = "<group>";
-		};
-		4E9A0DEA1DD577EE00313783 /* LaunchScreen */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		4EACD3F51DC98D9E00B07669 /* ScrollView */ = {
@@ -499,6 +505,7 @@
 				4E74A48B1DCC417300490A78 /* addAddress.swift in Sources */,
 				4E0ED4DA1DD0459C00D699B7 /* BackToHomeRight.swift in Sources */,
 				4EACD3FA1DC98E4700B07669 /* ProfileView.swift in Sources */,
+				4E02563C1DD9A1C8000C90CE /* Cart.swift in Sources */,
 				4E74A49A1DCC45B300490A78 /* ViewControllerPopUp.swift in Sources */,
 				4E74A4881DCC405900490A78 /* AddressGalleryView.swift in Sources */,
 				4E1D259D1DC33D2000F6EF6E /* Vendor.swift in Sources */,
@@ -507,6 +514,7 @@
 				4E74A48F1DCC42A400490A78 /* CircularTransition.swift in Sources */,
 				4E135A7E1DCF0E9C0098CA94 /* AddressMapView.swift in Sources */,
 				4E29FECC1DC45FB100F0AA06 /* Option.swift in Sources */,
+				4E02563A1DD99F5F000C90CE /* SuperCart.swift in Sources */,
 				4E4FC4A61DD2CB63008FA012 /* CustomSizeCell.swift in Sources */,
 				4EACD40D1DCAC0D900B07669 /* VerticalScrollViewController.swift in Sources */,
 				4EF984CC1DD0334100FF78D8 /* AddressGalleryCell.swift in Sources */,
