@@ -37,6 +37,7 @@ class StoreProfile: UIViewController, UITableViewDelegate, UITableViewDataSource
     var transitionManager = MenuTransitionManager()
     
     
+    
     override func viewWillAppear(_ animated: Bool) {
         
         loadStores()
@@ -92,7 +93,20 @@ class StoreProfile: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad()
         
         
-        self.transitionManager.sourceViewController = self
+        
+        //self.transitionManager.sourceViewController = self
+        
+        // Create swipe gesture recogniser for left swipe
+        var leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeLeft))
+        leftSwipe.direction = .left
+        view.addGestureRecognizer(leftSwipe)
+        
+        
+        // Create swipe gesture recogniser for right swipe
+        var rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeRight))
+        rightSwipe.direction = .right
+        view.addGestureRecognizer(rightSwipe)
+
                
         // Reference to table view nib file
         let nib = UINib(nibName: "storeProfileCell", bundle: nil)
@@ -143,20 +157,7 @@ class StoreProfile: UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
-    // **************** Segue to user profile section *************** //
-    
-    
-   // func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        
-     
-        
-   //   let menu = segue.destination as! ProfileView
-   //    menu.transitioningDelegate = self.transitionManager
-   
-        
-        
-  //  }
-    
+
     
     
     @IBAction func unwindToViewController (sender: UIStoryboardSegue){
@@ -172,6 +173,35 @@ class StoreProfile: UIViewController, UITableViewDelegate, UITableViewDataSource
         super.didReceiveMemoryWarning()
         
     }
+    
+    // handle the user swipe left to move to shopping bag
+    
+    func handleSwipeLeft(sender: UISwipeGestureRecognizer) {
+        
+        if (sender.direction == .left) {
+            
+            performSegue(withIdentifier: "showBag", sender: nil)
+            print("left")
+            
+        }
+  
+    }
+    
+    // handle the user swipe right to move to profile
+    
+    func handleSwipeRight(sender: UISwipeGestureRecognizer) {
+        
+        if (sender.direction == .right) {
+            
+            performSegue(withIdentifier: "presentProfile", sender: nil)
+        
+            print("Right")
+         
+            
+        }
+        
+    }
+
     
     
     // give profile pic a segue

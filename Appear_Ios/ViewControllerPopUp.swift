@@ -132,8 +132,7 @@ class ViewProfilePopUp: UIViewController {
         
         func viewDidLoad() {
             super.viewDidLoad()
-            
-            
+
             
         }
         
@@ -160,7 +159,6 @@ class ViewProfilePopUp: UIViewController {
             
         }
     }
-    
     
     
     func showAnimate()

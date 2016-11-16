@@ -25,6 +25,19 @@ class ShoppingBag: UIViewController {
         super.viewDidLoad()
         
       
+        // Create swipe gesture recogniser 
+        
+        
+        var rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeRight))
+    
+        
+        rightSwipe.direction = .right
+        
+    
+        view.addGestureRecognizer(rightSwipe)
+       
+
+        
         
         // make the nav bar transparent
        
@@ -51,10 +64,37 @@ class ShoppingBag: UIViewController {
         _ = self.navigationController?.popToRootViewController(animated: false)
         
         
+    }
+    
+    
+    // handle the user swipe right to remove the view
+    
+    func handleSwipeRight(sender: UISwipeGestureRecognizer) {
+        
+        if (sender.direction == .right) {
+          
+          
+            let transition = CATransition()
+            transition.duration = 0.1
+            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            transition.type = kCATransitionFade
+            self.navigationController?.view.layer.add(transition, forKey: nil)
+            _ = self.navigationController?.popToRootViewController(animated: false)
+ 
+            
+            print("right")
+            
+        }
+        
+        
         
     }
+    
+    
  
     @IBAction func next(_ sender: Any) {
-           
+        
     }
+    
+   
 }
