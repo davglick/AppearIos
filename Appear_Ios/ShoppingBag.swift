@@ -75,9 +75,10 @@ class ShoppingBag: UIViewController {
           
           
             let transition = CATransition()
-            transition.duration = 0.1
+            transition.duration = 0.15
             transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-            transition.type = kCATransitionFade
+            transition.type = kCATransitionPush
+            transition.subtype = kCATransitionFromLeft
             self.navigationController?.view.layer.add(transition, forKey: nil)
             _ = self.navigationController?.popToRootViewController(animated: false)
  

@@ -12,6 +12,9 @@
         <array key="GothamHTF-Book.ttf">
             <string>GothamHTF-Book</string>
         </array>
+        <array key="Md_Gothic11.ttf">
+            <string>Media-Gothic</string>
+        </array>
         <array key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
         </array>
@@ -36,7 +39,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1Wd-Y0-pZ3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="592"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.25836552573248728" green="0.13495282398027328" blue="0.23825714695589059" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="tUN-CR-iE2">
@@ -57,17 +60,24 @@
                                 <color key="pageIndicatorTintColor" red="0.66666666669999997" green="0.66666666669999997" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </pageControl>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQr-Yl-P8M">
-                                <rect key="frame" x="0.0" y="621" width="375" height="46"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.11023854763024447" green="0.11217405174956449" blue="0.12119289340101524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="ADD TO CART"/>
-                                <connections>
-                                    <action selector="addToCartButtonWithSender:" destination="oZv-iN-0f7" eventType="touchUpInside" id="ify-Es-JE8"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="maQ-ZM-aM3">
+                                <rect key="frame" x="0.0" y="597" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQr-Yl-P8M">
+                                        <rect key="frame" x="1" y="31" width="373" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                        <color key="backgroundColor" red="0.11023854763024447" green="0.11217405174956449" blue="0.12119289340101524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Media-Gothic" family="Media Gothic" pointSize="16"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="ADD TO CART"/>
+                                        <connections>
+                                            <action selector="addToCartButtonWithSender:" destination="oZv-iN-0f7" eventType="touchUpInside" id="ify-Es-JE8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btg-Eg-rW8">
                                 <rect key="frame" x="319" y="10" width="56" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
@@ -77,7 +87,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gka-uf-w5P">
-                                <rect key="frame" x="0.0" y="582" width="375" height="42"/>
+                                <rect key="frame" x="0.0" y="597" width="375" height="35"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YFQ-DY-y5z">
@@ -86,38 +96,38 @@
                                         <color key="backgroundColor" red="0.725199759" green="0.73341125250000005" blue="0.73333615060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="frS-yI-Bd2">
-                                        <rect key="frame" x="190" y="0.0" width="185" height="42"/>
+                                        <rect key="frame" x="192" y="1" width="177" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
-                                        <state key="normal" title="Size">
-                                            <color key="titleColor" red="0.33725490200000002" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Media-Gothic" family="Media Gothic" pointSize="14"/>
+                                        <state key="normal" title="SIZE">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="sizeButton:" destination="oZv-iN-0f7" eventType="touchUpInside" id="DZr-Ks-HfD"/>
                                         </connections>
                                     </button>
                                     <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nRo-yV-T11">
-                                        <rect key="frame" x="0.0" y="-583" width="375" height="583"/>
+                                        <rect key="frame" x="0.0" y="-596" width="375" height="596"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="iVv-i9-Gbx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="596"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                         <blurEffect style="dark"/>
                                     </visualEffectView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehr-cY-hUI">
-                                        <rect key="frame" x="0.0" y="0.0" width="186" height="42"/>
+                                        <rect key="frame" x="8" y="0.0" width="178" height="35"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
-                                        <state key="normal" title="Info">
-                                            <color key="titleColor" red="0.33725490200000002" green="0.3411764706" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Media-Gothic" family="Media Gothic" pointSize="14"/>
+                                        <state key="normal" title="INFO">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
                                             <action selector="infoButton:" destination="oZv-iN-0f7" eventType="touchUpInside" id="oXG-bE-p7Q"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -474,9 +484,6 @@
                                     <navigationItem id="JBK-sQ-S6K">
                                         <barButtonItem key="rightBarButtonItem" title="Item" image="store" id="A8q-Qe-w1I">
                                             <color key="tintColor" red="0.54405447179999999" green="0.573194749" blue="0.59634755709999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <segue destination="j2F-iK-aI4" kind="unwind" animates="NO" unwindAction="unwindToViewControllerWithSender:" id="694-eP-X6G"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -504,7 +511,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9M2-Y1-l52" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="j2F-iK-aI4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-644" y="-1583.6581709145428"/>
         </scene>
@@ -970,14 +976,14 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-WX-Ifa">
-                                                            <rect key="frame" x="32.5" y="8.5" width="270" height="31"/>
+                                                            <rect key="frame" x="31.5" y="8" width="270" height="31.5"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="14"/>
                                                             <color key="textColor" red="0.47002237916142131" green="0.47002237916142131" blue="0.47002237916142131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tick_address" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-qZ-Xqe">
-                                                            <rect key="frame" x="5" y="17.5" width="11.5" height="9.5"/>
+                                                            <rect key="frame" x="3.5" y="17.5" width="12.5" height="9.5"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>

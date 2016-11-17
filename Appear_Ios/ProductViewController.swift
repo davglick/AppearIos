@@ -14,8 +14,10 @@ import FBSDKLoginKit
 import Hex
 
 
+
 protocol SuperCartProtocol {
     func getSuperCartCount(valueSent: String)
+    
 }
 
 
@@ -123,6 +125,21 @@ UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        // Create swipe gesture recogniser
+        
+        
+        var DownSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeDown))
+        
+        
+        DownSwipe.direction = .down
+        
+        
+        view.addGestureRecognizer(DownSwipe)
+        
+        
+        // Refence classes, functions and nib files
+        
         let nib = UINib(nibName: "CustomproductView", bundle: nil)
         productCollectionView.register(nib, forCellWithReuseIdentifier: "CustomProduct")
         productCollectionView.backgroundColor = UIColor.white
@@ -190,21 +207,20 @@ UITableViewDelegate {
             self.createCart()
         })
     }
-    
     func createCart() {
         var exists = false
         self.ref.child("Carts").queryOrdered(byChild: "superCartToken").queryEqual(toValue: self.supercart!.superCartID).observeSingleEvent(of: .value, with: { (snapshot) in
-            for item in snapshot.children { /*
-                if(item.value["vendorID"] as? String == self.product.vendorID) {
+            for item in snapshot.children {
+           /*
+                if (item as AnyObject).value["vendorID"] as! String == self.product.vendorID {
                     self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
                     exists = true
-                 
-                } */
-                
-          
-                
+                }
+ 
+ */
                 
             }
+        
             if(exists == false) {
                 self.cart = Cart()
                 self.cart!.cartToken = NSUUID().uuidString
@@ -246,41 +262,6 @@ UITableViewDelegate {
     }
     
 
-
-
-
-                /*
-                for item in snapshot.children{
-                    let x = item as! FIRDataSnapshot
-                    var subTotal: Float
-                    var shippingTotal: Float
-                    var total: Float
-                    //a = Float(x.value!["cartSubTotal"] as! String)! + Float(self.product.price!)!
-                    //b = a + Float(x.value!["cartShippingTotal"] as! String)!
-                    if(x.value!["vendorID"] as? String == self.product.vendorID) {
-                        let x = item as! FIRDataSnapshot
-                        subTotal = Float(x.value!["cartSubTotal"] as! String)! + Float(self.product.price!)!
-                        total = subTotal + Float(x.value!["cartShippingTotal"] as! String)!
-                        let uid = x.key as String
-                        var itemCount = Int(x.value!["itemCount"] as! String)
-                        itemCount = itemCount! + 1
-                        self.ref.child("Carts").child(uid).child("cartSubTotal").setValue(String(subTotal))
-                        self.ref.child("Carts").child(uid).child("itemCount").setValue(String(itemCount!))
-                        self.ref.child("Carts").child(uid).child("cartTotal").setValue(String(total))
-                    }
-                }
-                self.ref.child("Supercarts").child(self.supercart!.superCartID!).observeSingleEvent(of: .value, with: { snapshot in
-                     let st = Float(snapshot.value!["subTotal"] as! String)! + Float(self.product.price!)!
-                     let t = Float(snapshot.value!["total"] as! String)! + Float(self.product.price!)!
-                     let count = Int(snapshot.value!["productCount"] as! String)! + 1
-                    self.ref.child("Supercarts").child(self.supercart!.superCartID!).child("productCount").setValue(String(count))
-                    self.ref.child("Supercarts").child(self.supercart!.superCartID!).child("subTotal").setValue(String(st))
-                    self.ref.child("Supercarts").child(self.supercart!.superCartID!).child("total").setValue(String(t))
-                })
-            })
-        })
-    }
-    */
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -393,6 +374,32 @@ UITableViewDelegate {
         self.sizeList.allowsSelection = true
         //self.sizeList.allowsMultipleSelection = false
     }
+    
+    
+    // handle the user swipe right to remove the view
+    
+    func handleSwipeDown(sender: UISwipeGestureRecognizer) {
+        
+        if (sender.direction == .down) {
+            
+            
+            let transition = CATransition()
+            transition.duration = 0.25
+            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            transition.type = kCATransition
+            transition.subtype = kCATransitionFromBottom
+            self.navigationController?.view.layer.add(transition, forKey: nil)
+            _ = self.navigationController?.popToRootViewController(animated: false)
+            
+            
+            print("down")
+            
+        }
+        
+        
+        
+    }
+
 
     // load product images
  
@@ -402,6 +409,8 @@ UITableViewDelegate {
                 let url: NSURL = NSURL(string: string!)!
                 let image = UIImageView()
                 image.sd_setImage(with: url as URL!, placeholderImage: #imageLiteral(resourceName: "whiteSQR"), options: .refreshCached)
+             
+                
                 x.append(image)
             }
             

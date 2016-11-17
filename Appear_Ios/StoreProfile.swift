@@ -194,8 +194,8 @@ class StoreProfile: UIViewController, UITableViewDelegate, UITableViewDataSource
         if (sender.direction == .right) {
             
             performSegue(withIdentifier: "presentProfile", sender: nil)
-        
             print("Right")
+            print("Cunt")
          
             
         }

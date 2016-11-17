@@ -41,6 +41,7 @@
 		4E4FC4A01DD2C347008FA012 /* MavenPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E4FC49F1DD2C347008FA012 /* MavenPro-Regular.ttf */; };
 		4E4FC4A21DD2C93A008FA012 /* CustomSizeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E4FC4A11DD2C93A008FA012 /* CustomSizeCell.xib */; };
 		4E4FC4A61DD2CB63008FA012 /* CustomSizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E4FC4A51DD2CB63008FA012 /* CustomSizeCell.swift */; };
+		4E72B8CE1DDD4A1C005C777B /* Md_Gothic11.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E72B8CD1DDD4A1C005C777B /* Md_Gothic11.ttf */; };
 		4E74A4841DCC366A00490A78 /* LeftToRightSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74A4831DCC366A00490A78 /* LeftToRightSegue.swift */; };
 		4E74A4881DCC405900490A78 /* AddressGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74A4871DCC405900490A78 /* AddressGalleryView.swift */; };
 		4E74A48B1DCC417300490A78 /* addAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74A48A1DCC417300490A78 /* addAddress.swift */; };
@@ -103,6 +104,7 @@
 		4E4FC49F1DD2C347008FA012 /* MavenPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MavenPro-Regular.ttf"; path = "../../Downloads/iOSAppearApp-master 2/MavenPro-Regular.ttf"; sourceTree = "<group>"; };
 		4E4FC4A11DD2C93A008FA012 /* CustomSizeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomSizeCell.xib; sourceTree = "<group>"; };
 		4E4FC4A51DD2CB63008FA012 /* CustomSizeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSizeCell.swift; sourceTree = "<group>"; };
+		4E72B8CD1DDD4A1C005C777B /* Md_Gothic11.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Md_Gothic11.ttf; path = "../../Downloads/iOSAppearApp-master 2/Md_Gothic11.ttf"; sourceTree = "<group>"; };
 		4E74A4831DCC366A00490A78 /* LeftToRightSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftToRightSegue.swift; sourceTree = "<group>"; };
 		4E74A4871DCC405900490A78 /* AddressGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressGalleryView.swift; sourceTree = "<group>"; };
 		4E74A48A1DCC417300490A78 /* addAddress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addAddress.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 		4E3F34511DC5A61E00655A2C /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				4E72B8CD1DDD4A1C005C777B /* Md_Gothic11.ttf */,
 				4E3F34551DC5A6EE00655A2C /* GothamHTF-Book.ttf */,
 				4E3F345B1DC5A70500655A2C /* syncopate-regular.ttf */,
 				4E3F34591DC5A6FF00655A2C /* Blair ITC Std.ttf */,
@@ -418,6 +421,7 @@
 				4E135A831DCF0FAF0098CA94 /* swish.mp3 in Resources */,
 				4E0D9CC21DD28AEF00E59D3B /* Montserrat-Regular.ttf in Resources */,
 				4E1D258B1DC336A700F6EF6E /* LaunchScreen.storyboard in Resources */,
+				4E72B8CE1DDD4A1C005C777B /* Md_Gothic11.ttf in Resources */,
 				4E135A851DCF0FB60098CA94 /* swipe.mp3 in Resources */,
 				4E29FED01DC4601B00F0AA06 /* ProductViewCell.xib in Resources */,
 				4E4FC4A01DD2C347008FA012 /* MavenPro-Regular.ttf in Resources */,

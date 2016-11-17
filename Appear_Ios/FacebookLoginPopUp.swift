@@ -32,6 +32,14 @@ class FacebookLoginPopUp: UIViewController, FBSDKLoginButtonDelegate{
         
         self.FBView.layer.cornerRadius = 3
         
+        
+        // Create swipe gesture recogniser
+        var leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeLeft))
+        leftSwipe.direction = .left
+        view.addGestureRecognizer(leftSwipe)
+        
+
+        
 
            }
 
@@ -98,6 +106,37 @@ class FacebookLoginPopUp: UIViewController, FBSDKLoginButtonDelegate{
         
     }
     
+    
+    // handle the user swipe right to remove the view
+    
+    func handleSwipeLeft(sender: UISwipeGestureRecognizer) {
+        
+        if (sender.direction == .left) {
+            
+            let transition = CATransition()
+            transition.duration = 0.1
+            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            transition.type = kCATransitionFade
+            self.navigationController?.view.layer.add(transition, forKey: nil)
+            _ = self.navigationController?.popToRootViewController(animated: false)
+            
+        }
+        
+    }
+    @IBAction func closeFB(_ sender: Any) {
+        
+        
+        let transition = CATransition()
+        transition.duration = 0.1
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        transition.type = kCATransitionFade
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        _ = self.navigationController?.popToRootViewController(animated: false)
+     
+
+
+    }
+    
     func removeView() {
         
         let transition = CATransition()
@@ -107,6 +146,8 @@ class FacebookLoginPopUp: UIViewController, FBSDKLoginButtonDelegate{
         self.navigationController?.view.layer.add(transition, forKey: nil)
         _ = self.navigationController?.popToRootViewController(animated: false)
     }
+
+
 
 
 }

@@ -9,6 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Md_Gothic11.ttf">
+            <string>Media-Gothic</string>
+        </array>
         <array key="Montserrat-Regular.ttf">
             <string>Montserrat-Regular</string>
         </array>
@@ -47,8 +50,8 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vendor" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="383-Gw-bIV">
                         <rect key="frame" x="8" y="254" width="171" height="21"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="13"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" name="Media-Gothic" family="Media Gothic" pointSize="12"/>
+                        <color key="textColor" red="0.40184592892505222" green="0.4098828475035533" blue="0.4098828475035533" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
