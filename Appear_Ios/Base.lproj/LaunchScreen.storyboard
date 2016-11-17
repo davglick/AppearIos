@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="launching" translatesAutoresizingMaskIntoConstraints="NO" id="dpl-iQ-TMW">
-                                <rect key="frame" x="67" y="225" width="240" height="217"/>
+                                <rect key="frame" x="52" y="206" width="270" height="255"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             </imageView>
                         </subviews>
