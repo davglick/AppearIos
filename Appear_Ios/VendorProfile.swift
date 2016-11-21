@@ -61,10 +61,10 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         // Add the back to stores button
         
         self.view.addSubview(backToStores)
-        self.backToStores.layer.cornerRadius = self.backToStores.frame.size.width/2
-        self.backToStores.layer.borderColor = UIColor(red: 160/255, green: 160/255, blue: 159/255, alpha: 1).cgColor
-        self.backToStores.layer.borderWidth = 0.05
-        self.backToStores.clipsToBounds = true
+        //self.backToStores.layer.cornerRadius = self.backToStores.frame.size.width/2
+       // self.backToStores.layer.borderColor = UIColor(red: 160/255, green: 160/255, blue: 159/255, alpha: 1).cgColor
+        //self.backToStores.layer.borderWidth = 0.05
+       // self.backToStores.clipsToBounds = true
         
         
         // refence the nib cell
@@ -237,23 +237,22 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
     func removeAnimation()
     {
         
-        let transitionOptions = UIViewAnimationOptions.curveEaseOut
-        
-       
-        self.view.alpha = 1.0
-        UIView.animate(withDuration: 0.25, delay: 0.25, options: transitionOptions, animations: {
-        self.view.alpha = 0.0
-      
 
-        }) { _ in
-            self.view.removeFromSuperview()
-        }
         
+      
+        let transition = CATransition()
+
+        self.view.alpha = 1.0
+        transition.duration = 0.5
+        transition.type = kCATransitionFromTop
+    
+        
+            self.view.removeFromSuperview()
+    
+
         
     }
     
-
-
 
     @IBAction func backToStores(_ sender: Any) {
         

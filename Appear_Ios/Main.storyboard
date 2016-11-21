@@ -297,18 +297,20 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="barTintColor" white="0.0" alpha="0.85094713180000003" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <navigationItem id="xnv-XS-FjC"/>
+                                    <navigationItem id="xnv-XS-FjC">
+                                        <nil key="title"/>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Ua-vX-jgS">
+                                            <rect key="frame" x="159" y="-1" width="58" height="45"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.2558325303821688" green="0.25836552573248728" blue="0.25836552573248728" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="pullDownArrow"/>
+                                            <connections>
+                                                <action selector="backToStores:" destination="Tfg-WU-tt9" eventType="touchUpInside" id="tLT-ia-fFV"/>
+                                            </connections>
+                                        </button>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ua-vX-jgS">
-                                <rect key="frame" x="166" y="594" width="45" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.2558325303821688" green="0.25836552573248728" blue="0.25836552573248728" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="pullDownArrow@1x"/>
-                                <connections>
-                                    <action selector="backToStores:" destination="Tfg-WU-tt9" eventType="touchUpInside" id="tLT-ia-fFV"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profileIconStore" translatesAutoresizingMaskIntoConstraints="NO" id="BAS-8J-lKf">
                                 <rect key="frame" x="15" y="7" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -1221,6 +1223,7 @@
         <image name="bag-1" width="39" height="47"/>
         <image name="profileIconStore" width="37" height="37"/>
         <image name="profilePicture" width="22" height="22"/>
+        <image name="pullDownArrow" width="35" height="14"/>
         <image name="pullDownArrow@1x" width="22" height="6"/>
         <image name="search" width="22" height="22"/>
         <image name="store" width="22" height="21"/>
@@ -1230,7 +1233,7 @@
         <image name="visaIcon" width="50" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ei4-BZ-Cla"/>
-        <segue reference="tdO-dT-JYS"/>
+        <segue reference="yE3-y4-4wd"/>
+        <segue reference="nkb-x3-Nez"/>
     </inferredMetricsTieBreakers>
 </document>
