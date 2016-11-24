@@ -29,8 +29,7 @@ class AddressGalleryCell: UIViewController {
             
             let uid = user.uid
             
-            
-          
+           
             databaseRef = FIRDatabase.database().reference().child("Delivery-Address").child(uid)
 
            

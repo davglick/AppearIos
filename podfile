@@ -25,6 +25,7 @@ pod 'Hex'
 pod 'Stripe'
 pod 'SVProgressHUD'
 pod 'CardIO'
+pod "JDFPeekaboo"
 
 
 

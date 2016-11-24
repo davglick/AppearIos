@@ -13,6 +13,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import Alamofire
 import Hex
+import JDFPeekaboo
 
 
 class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -23,6 +24,10 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
     var databaseRef: FIRDatabaseReference!
     var storage: FIRStorageReference!
     var products = [Product]()
+    var navHider = JDFPeekabooCoordinator()
+    var profilePicHider = JDFPeekabooCoordinator()
+    var shoppingBagHider = JDFPeekabooCoordinator()
+
 
     typealias JSONStandard = [String: AnyObject]
     
@@ -50,21 +55,35 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         
                self.showAnimate()
         
+        
+        
         // make the nav bar transparent
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
         self.navigationBar.backgroundColor = .clear
         self.navigationBar.isTranslucent = true
         
+        // hide nav bar when swcrolling 
+        
+        navHider.scrollView = self.productCollection
+        navHider.topView = navigationBar
+        profilePicHider.scrollView = self.productCollection
+        profilePicHider.topView = profilePic
+        profilePicHider.topViewMinimisedHeight = 0.00
+        shoppingBagHider.scrollView = self.productCollection
+        shoppingBagHider.topView = bag
+        shoppingBagHider.topViewMinimisedHeight = 0.00
+
+        
         
         
         // Add the back to stores button
         
         self.view.addSubview(backToStores)
-        //self.backToStores.layer.cornerRadius = self.backToStores.frame.size.width/2
-       // self.backToStores.layer.borderColor = UIColor(red: 160/255, green: 160/255, blue: 159/255, alpha: 1).cgColor
-        //self.backToStores.layer.borderWidth = 0.05
-       // self.backToStores.clipsToBounds = true
+        self.backToStores.layer.cornerRadius = self.backToStores.frame.size.width/2
+        self.backToStores.layer.borderColor = UIColor(red: 160/255, green: 160/255, blue: 159/255, alpha: 1).cgColor
+        self.backToStores.layer.borderWidth = 0.05
+        self.backToStores.clipsToBounds = true
         
         
         // refence the nib cell
@@ -112,6 +131,16 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
         bag.addGestureRecognizer(touch)
         
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        navHider.fullyExpandViews()
+    }
+    
+     override func viewWillAppear(_ animated: Bool) {
+        navHider.fullyExpandViews()
+    }
+
+
 
 
     override func didReceiveMemoryWarning() {
@@ -147,9 +176,9 @@ class VendorProfile: UIViewController, UICollectionViewDelegate, UICollectionVie
                 self.productCollection.reloadData()
                 
                 
-                
                
             }
+        
             
         }
     }

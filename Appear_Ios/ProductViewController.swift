@@ -211,13 +211,12 @@ UITableViewDelegate {
         var exists = false
         self.ref.child("Carts").queryOrdered(byChild: "superCartToken").queryEqual(toValue: self.supercart!.superCartID).observeSingleEvent(of: .value, with: { (snapshot) in
             for item in snapshot.children {
-           /*
-                if (item as AnyObject).value["vendorID"] as! String == self.product.vendorID {
-                    self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
-                    exists = true
-                }
- 
- */
+                
+              
+                if(item.value["vendorID"] as? String == self.product.vendorID) {
+                   self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
+                   exists = true
+            }
                 
             }
         

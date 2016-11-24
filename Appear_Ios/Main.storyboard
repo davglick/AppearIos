@@ -299,15 +299,6 @@
                                 <items>
                                     <navigationItem id="xnv-XS-FjC">
                                         <nil key="title"/>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4Ua-vX-jgS">
-                                            <rect key="frame" x="159" y="-1" width="58" height="45"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.2558325303821688" green="0.25836552573248728" blue="0.25836552573248728" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" image="pullDownArrow"/>
-                                            <connections>
-                                                <action selector="backToStores:" destination="Tfg-WU-tt9" eventType="touchUpInside" id="tLT-ia-fFV"/>
-                                            </connections>
-                                        </button>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -319,6 +310,15 @@
                                 <rect key="frame" x="342" y="9" width="22" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ua-vX-jgS">
+                                <rect key="frame" x="165" y="602" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.68235294120000001" green="0.71764705880000002" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="pullDownArrow"/>
+                                <connections>
+                                    <action selector="backToStores:" destination="Tfg-WU-tt9" eventType="touchUpInside" id="tLT-ia-fFV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -352,7 +352,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3Uo-TW-PPG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="iv9-9J-juy" id="7Jq-Un-DMt"/>
                                     <outlet property="delegate" destination="iv9-9J-juy" id="ZL2-5l-QW9"/>
@@ -486,11 +486,14 @@
                                     <navigationItem id="JBK-sQ-S6K">
                                         <barButtonItem key="rightBarButtonItem" title="Item" image="store" id="A8q-Qe-w1I">
                                             <color key="tintColor" red="0.54405447179999999" green="0.573194749" blue="0.59634755709999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <connections>
+                                                <action selector="backToStoreList:" destination="4fu-Hv-Woq" id="J4U-UI-eG9"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YOUR PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqd-X1-4KW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PROFILE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iqd-X1-4KW">
                                 <rect key="frame" x="72" y="12" width="231" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="VCROSDMono" family="VCR OSD Mono" pointSize="17"/>
@@ -790,6 +793,31 @@
             </objects>
             <point key="canvasLocation" x="140" y="-191"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="iuc-Rp-FOc">
+            <objects>
+                <viewController id="8FE-cf-chF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yHL-LU-tD0"/>
+                        <viewControllerLayoutGuide type="bottom" id="ahw-UJ-xNq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="603-t0-i4v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFm-M3-fF0">
+                                <rect key="frame" x="105" y="318" width="164" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mom-Rn-39v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.19999999999999" y="469.1154422788606"/>
+        </scene>
         <!--Facebook Login Pop Up-->
         <scene sceneID="OtA-xd-wQC">
             <objects>
@@ -977,22 +1005,17 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="333" height="54"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-WX-Ifa">
-                                                            <rect key="frame" x="30.5" y="7.5" width="270.5" height="31"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCr-WX-Ifa">
+                                                            <rect key="frame" x="30" y="7" width="271" height="39"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="14"/>
                                                             <color key="textColor" red="0.47002237916142131" green="0.47002237916142131" blue="0.47002237916142131" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tick_address" translatesAutoresizingMaskIntoConstraints="NO" id="nDE-qZ-Xqe">
-                                                            <rect key="frame" x="2.5" y="16" width="13" height="10.5"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                        </imageView>
                                                     </subviews>
                                                 </tableViewCellContentView>
                                                 <connections>
                                                     <outlet property="addressStringLabel" destination="HCr-WX-Ifa" id="ydR-Yh-6Ab"/>
-                                                    <outlet property="selectedAddressTick" destination="nDE-qZ-Xqe" id="46B-Ip-g7t"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -1016,7 +1039,7 @@
                                         <color key="backgroundColor" red="0.64313725490196072" green="0.64313725490196072" blue="0.64313725490196072" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="VCROSDMono" family="VCR OSD Mono" pointSize="14"/>
                                         <state key="normal" title="ADDRESS GALLERY">
-                                            <color key="titleColor" red="0.82745098039215681" green="0.8666666666666667" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.87527942406963943" green="0.92216054786313506" blue="0.95940898091470095" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                 </subviews>
@@ -1058,7 +1081,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzR-h8-Fkk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1673" y="-825"/>
+            <point key="canvasLocation" x="-1674.4000000000001" y="-825.33733133433293"/>
         </scene>
         <!--View Profile Pop Up-->
         <scene sceneID="hgg-73-ntS">
@@ -1228,12 +1251,11 @@
         <image name="search" width="22" height="22"/>
         <image name="store" width="22" height="21"/>
         <image name="tick" width="22" height="22"/>
-        <image name="tick_address" width="22" height="18"/>
         <image name="userIcon" width="22" height="22"/>
         <image name="visaIcon" width="50" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yE3-y4-4wd"/>
         <segue reference="nkb-x3-Nez"/>
+        <segue reference="yE3-y4-4wd"/>
     </inferredMetricsTieBreakers>
 </document>

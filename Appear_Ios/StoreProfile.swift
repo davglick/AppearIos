@@ -259,7 +259,9 @@ func bagTapped(img: AnyObject)
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     
         let cell: StoreProfileList = self.list.cellForRow(at: indexPath) as! StoreProfileList
+        
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "vendorProfile") as! VendorProfile
+    
         self.addChildViewController(vc)
         vc.view.frame = self.view.frame
         self.view.addSubview(vc.view)
