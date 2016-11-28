@@ -314,7 +314,7 @@
                                 <rect key="frame" x="165" y="602" width="45" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.68235294120000001" green="0.71764705880000002" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="pullDownArrow"/>
+                                <state key="normal" image="pullDownArrow@1x"/>
                                 <connections>
                                     <action selector="backToStores:" destination="Tfg-WU-tt9" eventType="touchUpInside" id="tLT-ia-fFV"/>
                                 </connections>
@@ -500,12 +500,24 @@
                                 <color key="textColor" red="0.54405447177694055" green="0.57319474897343758" blue="0.59634755710659904" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iyn-Kb-RQG">
+                                <rect key="frame" x="14" y="377" width="343" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <state key="normal" title="Payment Gallery">
+                                    <color key="titleColor" red="0.25490196079999999" green="0.78039215689999997" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="paymentGalleryTrigger:" destination="4fu-Hv-Woq" eventType="touchUpInside" id="mdb-1q-jNF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.87438531091370564" green="0.87438531091370564" blue="0.87438531091370564" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Lox-ZW-7yg"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
+                        <outlet property="PaymentGallery" destination="Iyn-Kb-RQG" id="J0t-ip-8j4"/>
                         <outlet property="addressView" destination="ddT-fp-7XE" id="gUC-zU-cD7"/>
                         <outlet property="paymentView" destination="Ziy-Ow-eJ3" id="kCE-c8-KGf"/>
                         <outlet property="profileCellView" destination="yTn-in-lma" id="VLC-YS-gKZ"/>
@@ -518,6 +530,105 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9M2-Y1-l52" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-644" y="-1583.6581709145428"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ido-pf-Hz0">
+            <objects>
+                <viewController id="Du6-Vi-Biw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bCf-Ij-EpZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="iTr-D6-v5N"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QOI-iu-W0S">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pt5-yD-bUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2348" y="-2957"/>
+        </scene>
+        <!--Payment Gallery-->
+        <scene sceneID="bzn-Yc-QrK">
+            <objects>
+                <viewController storyboardIdentifier="paymentGallery" id="33o-TL-SUh" customClass="paymentGallery" customModule="Appear_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2tb-Bp-nz7"/>
+                        <viewControllerLayoutGuide type="bottom" id="OmZ-S8-K8T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="usH-ei-HdT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U1t-E4-LSx" customClass="CSAnimationView">
+                                <rect key="frame" x="19" y="147" width="337" height="373"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6GO-sL-MtL">
+                                        <rect key="frame" x="1" y="30" width="336" height="343"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </tableView>
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UBC-RQ-eb2">
+                                        <rect key="frame" x="0.0" y="0.0" width="337" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.64313725489999995" green="0.64313725489999995" blue="0.64313725489999995" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="VCROSDMono" family="VCR OSD Mono" pointSize="14"/>
+                                        <state key="normal" title="PAYMENT GALLERY">
+                                            <color key="titleColor" red="0.87527942410000004" green="0.92216054790000002" blue="0.95940898090000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ht5-gp-1XN">
+                                        <rect key="frame" x="146" y="348" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.1450980392" green="0.5568627451" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="add"/>
+                                        <connections>
+                                            <action selector="addNewAddress:" destination="OFb-6x-bmz" eventType="touchUpInside" id="pvK-Z3-TjZ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="type" value="bounceUp"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="1.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="delay">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKl-HC-RLk">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <state key="normal" image="pullDownArrow@1x"/>
+                                <connections>
+                                    <action selector="closeAddressPopUp:" destination="OFb-6x-bmz" eventType="touchUpInside" id="sMb-4t-kZh"/>
+                                    <action selector="paymentGallery:" destination="33o-TL-SUh" eventType="touchUpInside" id="3Bb-7S-Bom"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="close" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHu-cV-obs">
+                                <rect key="frame" x="0.0" y="609" width="375" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="addCard" destination="Ht5-gp-1XN" id="WpF-S1-qBa"/>
+                        <outlet property="close" destination="PKl-HC-RLk" id="dPb-LI-7Ta"/>
+                        <outlet property="creditCardGallery" destination="6GO-sL-MtL" id="UL1-VY-mfC"/>
+                        <outlet property="paymentGallery" destination="U1t-E4-LSx" id="fk7-8c-e0j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9H8-Ko-42B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2348" y="-2297.0014992503748"/>
         </scene>
         <!--Profile View-->
         <scene sceneID="bug-Ea-phE">
@@ -603,14 +714,6 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.90980392160000001" green="0.90980392160000001" blue="0.90980392160000001" alpha="0.5" colorSpace="calibratedRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iyn-Kb-RQG">
-                                <rect key="frame" x="0.0" y="107" width="343" height="31"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                <state key="normal" title="Payment Gallery">
-                                    <color key="titleColor" red="0.25490196079999999" green="0.78039215689999997" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                         </subviews>
                     </view>
                 </viewController>
@@ -887,7 +990,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7P-MC-9T8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="M51-eM-3zJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3439" y="-1584"/>
+            <point key="canvasLocation" x="-3110" y="-1584"/>
         </scene>
         <!--Add Delivery Address-->
         <scene sceneID="UpA-Td-2t2">
@@ -1178,7 +1281,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2578" y="-1582"/>
+            <point key="canvasLocation" x="-2348" y="-1576"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Zns-L5-UDL">
@@ -1246,7 +1349,6 @@
         <image name="bag-1" width="39" height="47"/>
         <image name="profileIconStore" width="37" height="37"/>
         <image name="profilePicture" width="22" height="22"/>
-        <image name="pullDownArrow" width="35" height="14"/>
         <image name="pullDownArrow@1x" width="22" height="6"/>
         <image name="search" width="22" height="22"/>
         <image name="store" width="22" height="21"/>

@@ -14,6 +14,7 @@
 		4E0D9CC01DD146B200E59D3B /* CustomProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0D9CBF1DD146B200E59D3B /* CustomProductCollectionViewCell.swift */; };
 		4E0D9CC21DD28AEF00E59D3B /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E0D9CC11DD28AEF00E59D3B /* Montserrat-Regular.ttf */; };
 		4E0ED4DA1DD0459C00D699B7 /* BackToHomeRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */; };
+		4E104DB21DEBB64300B33841 /* paymentGallery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E104DB11DEBB64300B33841 /* paymentGallery.swift */; };
 		4E135A7E1DCF0E9C0098CA94 /* AddressMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E135A7D1DCF0E9C0098CA94 /* AddressMapView.swift */; };
 		4E135A811DCF0F9E0098CA94 /* Pop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A801DCF0F9E0098CA94 /* Pop.mp3 */; };
 		4E135A831DCF0FAF0098CA94 /* swish.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4E135A821DCF0FAF0098CA94 /* swish.mp3 */; };
@@ -72,6 +73,7 @@
 		4E0D9CBF1DD146B200E59D3B /* CustomProductCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		4E0D9CC11DD28AEF00E59D3B /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../Downloads/Fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackToHomeRight.swift; sourceTree = "<group>"; };
+		4E104DB11DEBB64300B33841 /* paymentGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paymentGallery.swift; sourceTree = "<group>"; };
 		4E135A7D1DCF0E9C0098CA94 /* AddressMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressMapView.swift; sourceTree = "<group>"; };
 		4E135A801DCF0F9E0098CA94 /* Pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Pop.mp3; path = ../../Downloads/Pop.mp3; sourceTree = "<group>"; };
 		4E135A821DCF0FAF0098CA94 /* swish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = swish.mp3; path = ../../Downloads/swish.mp3; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 		4E8424F81DE524D0006967CC /* Credit Card */ = {
 			isa = PBXGroup;
 			children = (
+				4E104DB11DEBB64300B33841 /* paymentGallery.swift */,
 				4E8424F71DE524BC006967CC /* Card.io */,
 			);
 			name = "Credit Card";
@@ -511,6 +514,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E104DB21DEBB64300B33841 /* paymentGallery.swift in Sources */,
 				4E74A4961DCC44D100490A78 /* User.swift in Sources */,
 				4EACD4171DCBF7D100B07669 /* SegueTransition.swift in Sources */,
 				4E89B3491DC859600031673B /* LineItem.swift in Sources */,

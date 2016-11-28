@@ -213,11 +213,9 @@ UITableViewDelegate {
             for item in snapshot.children {
                 
               
-                if(item.value["vendorID"] as? String == self.product.vendorID) {
-                   self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
-                   exists = true
-            }
-                
+               // if(item.value["vendorID"] as? String == self.product.vendorID) {
+                //    self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
+               //     exists = true
             }
         
             if(exists == false) {
