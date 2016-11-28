@@ -52,8 +52,9 @@
 		4E74A4961DCC44D100490A78 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74A4951DCC44D100490A78 /* User.swift */; };
 		4E74A49A1DCC45B300490A78 /* ViewControllerPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74A4991DCC45B300490A78 /* ViewControllerPopUp.swift */; };
 		4E74A49C1DCD630200490A78 /* FacebookLoginPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74A49B1DCD630100490A78 /* FacebookLoginPopUp.swift */; };
-		4E8424FA1DE52508006967CC /* scanCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8424F91DE52508006967CC /* scanCard.swift */; };
 		4E89B3491DC859600031673B /* LineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E89B3481DC859600031673B /* LineItem.swift */; };
+		4EAAA8F11DEBD3530091E013 /* creditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8F01DEBD3530091E013 /* creditCard.swift */; };
+		4EAAA8F31DEC09E10091E013 /* cardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8F21DEC09E10091E013 /* cardCell.swift */; };
 		4EACD3FA1DC98E4700B07669 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACD3F91DC98E4700B07669 /* ProfileView.swift */; };
 		4EACD3FD1DC991B400B07669 /* ShoppingBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACD3FC1DC991B400B07669 /* ShoppingBag.swift */; };
 		4EACD3FF1DC9967800B07669 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACD3FE1DC9967800B07669 /* UserView.swift */; };
@@ -74,6 +75,7 @@
 		4E0D9CC11DD28AEF00E59D3B /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Regular.ttf"; path = "../../Downloads/Fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackToHomeRight.swift; sourceTree = "<group>"; };
 		4E104DB11DEBB64300B33841 /* paymentGallery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paymentGallery.swift; sourceTree = "<group>"; };
+		4E104DB31DEBBEE200B33841 /* Appear_Ios-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Appear_Ios-Bridging-Header.h"; sourceTree = "<group>"; };
 		4E135A7D1DCF0E9C0098CA94 /* AddressMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressMapView.swift; sourceTree = "<group>"; };
 		4E135A801DCF0F9E0098CA94 /* Pop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Pop.mp3; path = ../../Downloads/Pop.mp3; sourceTree = "<group>"; };
 		4E135A821DCF0FAF0098CA94 /* swish.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = swish.mp3; path = ../../Downloads/swish.mp3; sourceTree = "<group>"; };
@@ -118,8 +120,9 @@
 		4E74A4991DCC45B300490A78 /* ViewControllerPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerPopUp.swift; sourceTree = "<group>"; };
 		4E74A49B1DCD630100490A78 /* FacebookLoginPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookLoginPopUp.swift; sourceTree = "<group>"; };
 		4E74A49D1DCD6A1200490A78 /* Appear_Ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Appear_Ios.entitlements; sourceTree = "<group>"; };
-		4E8424F91DE52508006967CC /* scanCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = scanCard.swift; sourceTree = "<group>"; };
 		4E89B3481DC859600031673B /* LineItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineItem.swift; sourceTree = "<group>"; };
+		4EAAA8F01DEBD3530091E013 /* creditCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = creditCard.swift; sourceTree = "<group>"; };
+		4EAAA8F21DEC09E10091E013 /* cardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cardCell.swift; sourceTree = "<group>"; };
 		4EACD3F91DC98E4700B07669 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		4EACD3FC1DC991B400B07669 /* ShoppingBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingBag.swift; sourceTree = "<group>"; };
 		4EACD3FE1DC9967800B07669 /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
@@ -192,6 +195,7 @@
 		4E1D25711DC336A600F6EF6E = {
 			isa = PBXGroup;
 			children = (
+				4E104DB31DEBBEE200B33841 /* Appear_Ios-Bridging-Header.h */,
 				4E1D25961DC3380C00F6EF6E /* podfile */,
 				4E1D257C1DC336A700F6EF6E /* Appear_Ios */,
 				4E3F34511DC5A61E00655A2C /* Fonts */,
@@ -315,19 +319,12 @@
 			name = "Segue Animation Classes";
 			sourceTree = "<group>";
 		};
-		4E8424F71DE524BC006967CC /* Card.io */ = {
-			isa = PBXGroup;
-			children = (
-				4E8424F91DE52508006967CC /* scanCard.swift */,
-			);
-			name = Card.io;
-			sourceTree = "<group>";
-		};
 		4E8424F81DE524D0006967CC /* Credit Card */ = {
 			isa = PBXGroup;
 			children = (
 				4E104DB11DEBB64300B33841 /* paymentGallery.swift */,
-				4E8424F71DE524BC006967CC /* Card.io */,
+				4EAAA8F21DEC09E10091E013 /* cardCell.swift */,
+				4EAAA8F01DEBD3530091E013 /* creditCard.swift */,
 			);
 			name = "Credit Card";
 			sourceTree = "<group>";
@@ -523,6 +520,7 @@
 				4E1D25801DC336A700F6EF6E /* ViewController.swift in Sources */,
 				4E29FECA1DC45F8900F0AA06 /* Product.swift in Sources */,
 				4E29FEC81DC45F4200F0AA06 /* VendorProfile.swift in Sources */,
+				4EAAA8F31DEC09E10091E013 /* cardCell.swift in Sources */,
 				4E74A4941DCC43E700490A78 /* AddressCell.swift in Sources */,
 				4E1D25A11DC33DC200F6EF6E /* StoreProfileList.swift in Sources */,
 				4E1D257E1DC336A700F6EF6E /* AppDelegate.swift in Sources */,
@@ -541,9 +539,9 @@
 				4E74A48F1DCC42A400490A78 /* CircularTransition.swift in Sources */,
 				4E135A7E1DCF0E9C0098CA94 /* AddressMapView.swift in Sources */,
 				4E29FECC1DC45FB100F0AA06 /* Option.swift in Sources */,
+				4EAAA8F11DEBD3530091E013 /* creditCard.swift in Sources */,
 				4E02563A1DD99F5F000C90CE /* SuperCart.swift in Sources */,
 				4E4FC4A61DD2CB63008FA012 /* CustomSizeCell.swift in Sources */,
-				4E8424FA1DE52508006967CC /* scanCard.swift in Sources */,
 				4EACD40D1DCAC0D900B07669 /* VerticalScrollViewController.swift in Sources */,
 				4EF984CC1DD0334100FF78D8 /* AddressGalleryCell.swift in Sources */,
 				4E74A48D1DCC41C600490A78 /* AddressList.swift in Sources */,
@@ -673,7 +671,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "AppearTechnology.Appear-Ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Appear_Ios/Appear_Ios-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Appear_Ios-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -691,7 +689,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "AppearTechnology.Appear-Ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Appear_Ios/Appear_Ios-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Appear_Ios-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
