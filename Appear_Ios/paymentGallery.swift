@@ -13,6 +13,8 @@ import FirebaseAuth
 import AVFoundation
 import Stripe
 import SVProgressHUD
+import Alamofire
+import SwiftyJSON
 
 
 class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STPPaymentCardTextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
@@ -25,10 +27,14 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
     
     @IBOutlet var close: UIButton!
     
+    @IBOutlet var paymentGalleryView: UIView!
     
+    var stripeTool = StripeTools()
+    var customerId: String?
     var soundEffect = AVAudioPlayer()
     var CC = [creditCard]()
     var DBref: FIRDatabaseReference!
+    var createUser = createStripeUser()
 
     
     var gravity: UIGravityBehavior!
@@ -81,6 +87,11 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
         // give background an opacity 
         
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        self.paymentGalleryView.layer.cornerRadius = 4
+        
+        // address gallery grey header design
+        
+        self.paymentGalleryView.layer.cornerRadius = 1
         
         // Make add button rounded 
         
@@ -156,12 +167,13 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
     func userDidProvide(_ cardInfo: CardIOCreditCardInfo!, in paymentViewController: CardIOPaymentViewController!) {
         if let info = cardInfo {
             let str = NSString(format: "Received card info.\n Number: %@\n expiry: %02lu/%lu\n cvv: %@.", info.redactedCardNumber, info.expiryMonth, info.expiryYear, info.cvv)
-           // label.text = str as String
             
+        
             
         if let user = FIRAuth.auth()?.currentUser {
             
             let uid = user.uid
+            //createStripeUser()
             
             // Create add address ref in firebase
            // let CCRef = DBref.child("CCard").child(uid)
@@ -173,7 +185,8 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
             }
             
             print(str)
-
+            
+            
         //dismiss scanning controller
         paymentViewController?.dismiss(animated: true, completion: nil)
         
@@ -233,5 +246,100 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
         }
         
     }
+    
+    
+    /*
+    func createStripeUser() {
+        
+        let shopifyURL = "https://arcane-beach-89880.herokuapp.com/customers"
+        
+        
+        Alamofire.request(shopifyURL).responseJSON { (response) -> Void in
+            
+            // check if the result has a value
+            
+            if let value = response.result.value {
+                
+                
+                let json = JSON(value)
+                
+                print(json)
+                
+                
+                
+                
+            }
+        }
+        
+    }
+    
+ */
+    
+    let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
+    var dataTask: URLSessionDataTask?
+    
+    
+    //createUser
+    func createUser(card: STPCardParams, completion: @escaping (_ success: Bool) -> Void) {
+        
+        //Stripe iOS SDK will gave us a token to make APIs call possible
+        stripeTool.generateToken(card: card) { (token) in
+            if(token != nil) {
+                
+                //request to create the user
+                let request = NSMutableURLRequest(url: NSURL(string: "http://localhost:3000/createCust")! as URL)
+                
+                //params array where you can put your user informations
+                var params = [String:String]()
+                params["email"] = "test@test.test"
+                
+                //transform this array into a string
+                var str = ""
+                params.forEach({ (key, value) in
+                    str = "\(str)\(key)=\(value)&"
+                })
+                
+                //basic auth
+                request.setValue(self.stripeTool.getBasicAuth(), forHTTPHeaderField: "Authorization")
+                
+                //POST method, refer to Stripe documentation
+                request.httpMethod = "POST"
+                
+                request.httpBody = str.data(using: String.Encoding.utf8)
+                
+                //create request block
+                self.dataTask = self.defaultSession.dataTask(with: request as URLRequest) { (data, response, error) in
+                    
+                    //get returned error
+                    if let error = error {
+                        print(error)
+                        completion(false)
+                    }
+                    else if let httpResponse = response as? HTTPURLResponse {
+                        //you can also check returned response
+                        if(httpResponse.statusCode == 200) {
+                            if let data = data {
+                                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                                //serialize the returned datas an get the customerId
+                                if let id = ["id"] as? String {
+                                    self.customerId = id
+                                   // self.createCard(id, card: card) { (success) in
+                                       // completion(success: true)
+                                   // }
+                                }
+                            }
+                        }
+                        else {
+                            completion(false)
+                        }
+                    }
+                }
+                
+                //launch request
+                self.dataTask?.resume()
+            }
+        }
+    }
+
 
 }

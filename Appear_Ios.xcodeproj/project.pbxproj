@@ -55,6 +55,11 @@
 		4E89B3491DC859600031673B /* LineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E89B3481DC859600031673B /* LineItem.swift */; };
 		4EAAA8F11DEBD3530091E013 /* creditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8F01DEBD3530091E013 /* creditCard.swift */; };
 		4EAAA8F31DEC09E10091E013 /* cardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8F21DEC09E10091E013 /* cardCell.swift */; };
+		4EAAA8F51DECF5FF0091E013 /* postRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8F41DECF5FF0091E013 /* postRequests.swift */; };
+		4EAAA8F71DED25A20091E013 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8F61DED25A20091E013 /* Customer.swift */; };
+		4EAAA8F91DEF94110091E013 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8F81DEF94110091E013 /* testViewController.swift */; };
+		4EAAA8FB1DF0E8EF0091E013 /* StripeTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8FA1DF0E8EF0091E013 /* StripeTools.swift */; };
+		4EAAA8FD1DF0EC2B0091E013 /* createStripeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8FC1DF0EC2B0091E013 /* createStripeUser.swift */; };
 		4EACD3FA1DC98E4700B07669 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACD3F91DC98E4700B07669 /* ProfileView.swift */; };
 		4EACD3FD1DC991B400B07669 /* ShoppingBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACD3FC1DC991B400B07669 /* ShoppingBag.swift */; };
 		4EACD3FF1DC9967800B07669 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACD3FE1DC9967800B07669 /* UserView.swift */; };
@@ -123,6 +128,11 @@
 		4E89B3481DC859600031673B /* LineItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineItem.swift; sourceTree = "<group>"; };
 		4EAAA8F01DEBD3530091E013 /* creditCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = creditCard.swift; sourceTree = "<group>"; };
 		4EAAA8F21DEC09E10091E013 /* cardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cardCell.swift; sourceTree = "<group>"; };
+		4EAAA8F41DECF5FF0091E013 /* postRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postRequests.swift; sourceTree = "<group>"; };
+		4EAAA8F61DED25A20091E013 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		4EAAA8F81DEF94110091E013 /* testViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
+		4EAAA8FA1DF0E8EF0091E013 /* StripeTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeTools.swift; sourceTree = "<group>"; };
+		4EAAA8FC1DF0EC2B0091E013 /* createStripeUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = createStripeUser.swift; path = ../createStripeUser.swift; sourceTree = "<group>"; };
 		4EACD3F91DC98E4700B07669 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		4EACD3FC1DC991B400B07669 /* ShoppingBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingBag.swift; sourceTree = "<group>"; };
 		4EACD3FE1DC9967800B07669 /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
@@ -175,6 +185,7 @@
 				4E29FECB1DC45FB100F0AA06 /* Option.swift */,
 				4E29FEC91DC45F8900F0AA06 /* Product.swift */,
 				4E0D9CBB1DD1454300E59D3B /* ProductViewController.swift */,
+				4EAAA8F81DEF94110091E013 /* testViewController.swift */,
 				4E0D9CBF1DD146B200E59D3B /* CustomProductCollectionViewCell.swift */,
 				4E0D9CBD1DD1462400E59D3B /* CustomproductView.xib */,
 			);
@@ -230,6 +241,8 @@
 				4EACD3FB1DC9919600B07669 /* Shopping Bag */,
 				4E74A4901DCC42BC00490A78 /* Segue Animation Classes */,
 				4EACD4081DCABF6A00B07669 /* Main.storyboard */,
+				4EAAA8F41DECF5FF0091E013 /* postRequests.swift */,
+				4EAAA8F61DED25A20091E013 /* Customer.swift */,
 				4E1D25871DC336A700F6EF6E /* Assets.xcassets */,
 				4E1D25891DC336A700F6EF6E /* LaunchScreen.storyboard */,
 				4E29FEC31DC45D3C00F0AA06 /* GoogleService-Info.plist */,
@@ -322,7 +335,9 @@
 		4E8424F81DE524D0006967CC /* Credit Card */ = {
 			isa = PBXGroup;
 			children = (
+				4EAAA8FC1DF0EC2B0091E013 /* createStripeUser.swift */,
 				4E104DB11DEBB64300B33841 /* paymentGallery.swift */,
+				4EAAA8FA1DF0E8EF0091E013 /* StripeTools.swift */,
 				4EAAA8F21DEC09E10091E013 /* cardCell.swift */,
 				4EAAA8F01DEBD3530091E013 /* creditCard.swift */,
 			);
@@ -517,11 +532,15 @@
 				4E89B3491DC859600031673B /* LineItem.swift in Sources */,
 				4E0D9CC01DD146B200E59D3B /* CustomProductCollectionViewCell.swift in Sources */,
 				4E74A4841DCC366A00490A78 /* LeftToRightSegue.swift in Sources */,
+				4EAAA8F91DEF94110091E013 /* testViewController.swift in Sources */,
 				4E1D25801DC336A700F6EF6E /* ViewController.swift in Sources */,
 				4E29FECA1DC45F8900F0AA06 /* Product.swift in Sources */,
 				4E29FEC81DC45F4200F0AA06 /* VendorProfile.swift in Sources */,
+				4EAAA8FB1DF0E8EF0091E013 /* StripeTools.swift in Sources */,
+				4EAAA8FD1DF0EC2B0091E013 /* createStripeUser.swift in Sources */,
 				4EAAA8F31DEC09E10091E013 /* cardCell.swift in Sources */,
 				4E74A4941DCC43E700490A78 /* AddressCell.swift in Sources */,
+				4EAAA8F71DED25A20091E013 /* Customer.swift in Sources */,
 				4E1D25A11DC33DC200F6EF6E /* StoreProfileList.swift in Sources */,
 				4E1D257E1DC336A700F6EF6E /* AppDelegate.swift in Sources */,
 				4EACD3FF1DC9967800B07669 /* UserView.swift in Sources */,
@@ -548,6 +567,7 @@
 				4EACD3FD1DC991B400B07669 /* ShoppingBag.swift in Sources */,
 				4E74A49C1DCD630200490A78 /* FacebookLoginPopUp.swift in Sources */,
 				4E1D25991DC3389B00F6EF6E /* StoreProfile.swift in Sources */,
+				4EAAA8F51DECF5FF0091E013 /* postRequests.swift in Sources */,
 				4EACD40B1DCAC09200B07669 /* NavigationScrolling.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

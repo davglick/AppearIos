@@ -182,9 +182,72 @@ UITableViewDelegate {
             
               AddToCart.titleLabel!.font =  UIFont(name: "Montserrat-Regular", size: 20)
         }
-        
     }
     
+    func createSuperCart(user: String) {
+        self.ref.child("Supercarts").queryOrdered(byChild: "UID").queryEqual(toValue: user).observeSingleEvent(of: .value, with: { (snapshot) in
+            if(snapshot.exists()) {
+                self.supercart = SuperCart(snapshot: snapshot.children.nextObject() as? FIRDataSnapshot)
+              
+            }
+            else{
+                self.supercart = SuperCart()
+                self.supercart!.superCartID = NSUUID().uuidString
+                self.supercart!.userID = user
+                self.supercart!.productCount = 0
+                self.supercart!.subTotal = 0
+                self.supercart!.shippingTotal = 0
+                self.supercart!.total = 0
+                self.supercart!.completed = false
+                self.ref.child("Supercarts").child(self.supercart!.superCartID!).setValue(["UID": "\(self.supercart!.userID!)", "subTotal": "\(self.supercart!.subTotal!)", "shippingTotal": "\(self.supercart!.shippingTotal!)", "total": "\(self.supercart!.total!)", "productCount": "\(self.supercart!.productCount!)"])
+            }
+            
+            self.createCart()
+            
+
+        })
+    }
+
+    func createCart() {
+        
+        
+ 
+        
+    }
+
+
+    
+            /*
+            if let snapDict = snapshot.value as? [String:AnyObject]{
+                for child in snapDict{
+                if(child.value["vendorID"] as? String == self.product.vendorID) {
+                    self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
+                    exists = true
+                    
+                    print("Exists")
+                    
+            }
+        
+        }
+                
+            } else {
+                self.cart = Cart()
+                self.cart!.cartToken = NSUUID().uuidString
+                self.cart!.superCartToken = self.supercart?.superCartID
+                self.cart!.vendorID = self.product.vendorID
+                self.cart!.timestampCreated = "\(NSDate())"
+                self.ref.child("Carts").child(self.cart!.cartToken!).setValue(["superCartToken": "\(self.cart!.superCartToken!)", "vendorID": "\(self.cart!.vendorID!)", "timestampCreated": "\(self.cart!.timestampCreated!)", "itemCount": "\(self.cart!.itemCount)", "cartSubTotal": "\(self.cart!.cartSubTotal)", "cartShippingTotal": "\(self.cart!.cartShippingTotal)", "cartTotal": "\(self.cart!.cartTotal)"])
+                
+     
+            }
+            
+        })
+    }
+
+           */
+                
+    
+    /*
     
     // Create supercart, shopping cart, line items in cart 
     
@@ -210,13 +273,21 @@ UITableViewDelegate {
     func createCart() {
         var exists = false
         self.ref.child("Carts").queryOrdered(byChild: "superCartToken").queryEqual(toValue: self.supercart!.superCartID).observeSingleEvent(of: .value, with: { (snapshot) in
-            for item in snapshot.children {
+            if let snapDict = snapshot.value as? [String:AnyObject]{
+                for item in snapDict{
+                if(data.value["vendorID"] as? String == self.product.vendorID) {
+                    self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
+                    exists = true
+                    }
+                }
+            }
+           // for item in snapshot.children {
                 
               
                // if(item.value["vendorID"] as? String == self.product.vendorID) {
                 //    self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
                //     exists = true
-            }
+          //  }
         
             if(exists == false) {
                 self.cart = Cart()
@@ -239,15 +310,20 @@ UITableViewDelegate {
             }
         }
         self.ref.child("CartItems").queryOrdered(byChild: "cartToken").queryEqual(toValue: self.cart?.cartToken!).observeSingleEvent(of: .value, with: { (snapshot) in
-            for item in snapshot.children{ /*
+           // for item in snapshot.children{
+               // let data = (item as! FIRDataSnapshot).value! as! NSDictionary
+                if let snapDict = snapshot.value as? [String:AnyObject]{
+                    for item in snapDict{
+                        
                 if(item.value["variantID"] as? String == self.product.option?.ID) {
-                    let x = item as! FIRDataSnapshot
-                    let quantity = Int(x.value!["quantity"] as! String)
+                  //  let x = item as! FIRDataSnapshot
+                    let quantity = Int((item.value["quantity"] as? String)!)
                     self.product.quantity = quantity! + 1
-                    let uid = x.key as String
+                    let uid = item.key as String
                     self.ref.child("CartItems").child(uid).child("quantity").setValue(String(self.product.quantity))
                     exists = true
-                } */
+                        }
+                }
             }
             if(exists == false){
                 self.ref.child("CartItems").childByAutoId().setValue(["productID": "\(self.product.id!)", "imageURL": "\(self.product.image[0]!)", "title": "\(self.product.title!)", "vendor": "\(self.product.vendor!)", "vendorID": "\(self.product.vendorID!)", "price": "\(self.product.price!)", "quantity": "\(self.product.quantity)", "variantID": "\(self.product.option!.ID!)", "vairantTitle": "\(self.product.option!.title!)", "cartToken": "\(self.cart!.cartToken!)", "superCartToken": "\(self.supercart!.superCartID!)"])
@@ -257,9 +333,9 @@ UITableViewDelegate {
  })
         
     }
-    
+    */
 
-
+                
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
@@ -569,9 +645,11 @@ UITableViewDelegate {
         
         animateSizeOut()
         animateInfoOut()
+      
+            }
+                
+            
     }
-    
 
-}
 
 

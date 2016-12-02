@@ -105,7 +105,7 @@ extension AddressMapView: GMSAutocompleteViewControllerDelegate {
         
         
         mapView.animate(toLocation: place.coordinate)
-        mapView.animate(toZoom: 12)
+        mapView.animate(toZoom: 15)
         
         
     }

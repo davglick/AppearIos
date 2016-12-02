@@ -126,7 +126,7 @@ class AddressGalleryView: UIViewController, UIViewControllerTransitioningDelegat
     
     func animateOut () {
         
-        UIView.animate(withDuration: 0.5, animations: {
+        UIView.animate(withDuration: 0.75, animations: {
             //self.view.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
             self.view.alpha = 0
             
