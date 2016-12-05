@@ -105,7 +105,7 @@ UITableViewDelegate {
             FIRAuth.auth()?.addStateDidChangeListener { auth, user in
                 if user != nil {
                     let x = user?.uid
-                    self.createSuperCart(user: x!)
+                    self.createSuperCart()
                     self.navigationController?.popViewController(animated: true)
                     //self.createCart()
                     //self.addLineItem()
@@ -184,13 +184,123 @@ UITableViewDelegate {
         }
     }
     
-    func createSuperCart(user: String) {
+   
+
+    
+    // Create user supercart
+    
+    func createSuperCart() {
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            
+            let uid = user.uid
+            
+            self.ref.child("Supercarts").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+                if snapshot.hasChild(uid.self){
+                    
+                    print("Cart does exist")
+                    
+                }else{
+                    
+                    print("cart doesn't exist")
+                    self.supercart = SuperCart()
+                    self.supercart!.superCartID = NSUUID().uuidString
+                    self.supercart!.productCount = 0
+                    self.supercart!.subTotal = 0
+                    self.supercart!.shippingTotal = 0
+                    self.supercart!.total = 0
+                    self.supercart!.completed = false
+                    self.ref.child("Supercarts").child(uid).setValue(["cartID": "\(self.supercart!.superCartID!)", "subTotal": "\(self.supercart!.subTotal!)", "shippingTotal": "\(self.supercart!.shippingTotal!)", "total": "\(self.supercart!.total!)", "productCount": "\(self.supercart!.productCount!)"])
+                }
+                
+                self.createCart()
+            })
+        }
+        
+    }
+
+    func createCart() {
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            
+        let uid = user.uid
+
+        self.ref.child("Carts").queryOrdered(byChild: "superCartToken").queryEqual(toValue: uid.self).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+            for snap in snapshots {
+                if let doing = snap.value as? Dictionary<String, AnyObject> {
+                    if(doing["vendorID"] as? String == self.product.vendorID) {
+                        self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
+                 
+            print(snapshot.value)
+                    print("Exists")
+                
+           } else {
+
+            /*
+                self.cart = Cart()
+                self.cart!.superCartToken = uid
+                self.cart!.cartToken = NSUUID().uuidString
+                self.cart!.cartId = NSUUID().uuidString
+                self.cart!.vendorID = self.product.vendorID
+                self.cart!.timestampCreated = "\(NSDate())"
+                self.ref.child("Carts").child(self.cart!.cartToken!).setValue(["superCartToken": "\(self.cart!.superCartToken!)","vendorID": "\(self.cart!.vendorID!)", "cartId": "\(self.cart!.cartId!)","timestampCreated": "\(self.cart!.timestampCreated!)", "itemCount": "\(self.cart!.itemCount)", "cartSubTotal": "\(self.cart!.cartSubTotal)", "cartShippingTotal": "\(self.cart!.cartShippingTotal)", "cartTotal": "\(self.cart!.cartTotal)"])
+ 
+ */
+                    print("Nul")
+                    
+        }
+        }
+        }
+        }
+        })
+        }
+    }
+    
+/*
+            }
+        })
+    }
+}
+*/
+            /*
+            
+            self.ref.child("Supercarts").queryOrdered(byChild: user.uid).queryEqual(toValue: uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                if(snapshot.exists()) {
+                
+                    print("Yes")
+                    print(snapshot.value)
+                
+                } else {
+                    
+                    
+                    print("Nul")
+            */
+            /*
+            self.supercart = SuperCart()
+            self.supercart!.superCartID = uid
+            self.supercart!.productCount = 0
+            self.supercart!.subTotal = 0
+            self.supercart!.shippingTotal = 0
+            self.supercart!.total = 0
+            self.supercart!.completed = false
+            self.ref.child("Supercarts").child(uid).setValue(["UID": "\(self.supercart!.superCartID!)", "subTotal": "\(self.supercart!.subTotal!)", "shippingTotal": "\(self.supercart!.shippingTotal!)", "total": "\(self.supercart!.total!)", "productCount": "\(self.supercart!.productCount!)"])
+            */
+                    
+    
+ 
+
+    
+        /*
         self.ref.child("Supercarts").queryOrdered(byChild: "UID").queryEqual(toValue: user).observeSingleEvent(of: .value, with: { (snapshot) in
             if(snapshot.exists()) {
-                self.supercart = SuperCart(snapshot: snapshot.children.nextObject() as? FIRDataSnapshot)
-              
+               // self.supercart = SuperCart(snapshot: snapshot.children.nextObject() as? FIRDataSnapshot)
+                
+                print("value exists")
             }
             else{
+                
+                
                 self.supercart = SuperCart()
                 self.supercart!.superCartID = NSUUID().uuidString
                 self.supercart!.userID = user
@@ -201,21 +311,15 @@ UITableViewDelegate {
                 self.supercart!.completed = false
                 self.ref.child("Supercarts").child(self.supercart!.superCartID!).setValue(["UID": "\(self.supercart!.userID!)", "subTotal": "\(self.supercart!.subTotal!)", "shippingTotal": "\(self.supercart!.shippingTotal!)", "total": "\(self.supercart!.total!)", "productCount": "\(self.supercart!.productCount!)"])
             }
-            
-            self.createCart()
-            
-
+           
         })
-    }
-
-    func createCart() {
-        
-        
  
+
         
     }
 
-
+ */
+  
     
             /*
             if let snapDict = snapshot.value as? [String:AnyObject]{
@@ -335,7 +439,7 @@ UITableViewDelegate {
     }
     */
 
-                
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         

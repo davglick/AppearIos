@@ -19,12 +19,14 @@ class Cart: NSObject {
     var cartSubTotal: Int = 0
     var cartShippingTotal: Int = 0
     var cartTotal: Int = 0
+    var cartId: String?
     
     convenience init(snapshot: FIRDataSnapshot) {
         self.init()
         cartToken = snapshot.key as String
         superCartToken = (snapshot.value as? NSDictionary)?["superCartToken"] as? String
         vendorID = (snapshot.value as? NSDictionary)?["vendorID"] as? String
+        cartId = (snapshot.value as? NSDictionary)?["cartId"] as? String
         timestampCreated = (snapshot.value as? NSDictionary)?["timestampCreated"] as? String
     }
 }

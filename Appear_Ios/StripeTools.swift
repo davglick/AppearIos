@@ -5,6 +5,7 @@
 //  Created by Davin Glick on 2/12/16.
 //  Copyright © 2016 Appear. All rights reserved.
 //
+/*
 
 import UIKit
 import Stripe
@@ -32,3 +33,4 @@ class StripeTools: NSObject {
     }
     
 }
+*/

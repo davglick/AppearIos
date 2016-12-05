@@ -8,33 +8,43 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 import FirebaseAuth
+import AVFoundation
+import Stripe
+import SVProgressHUD
 import Alamofire
 import SwiftyJSON
-import Stripe
 
-class postRequests: UIViewController, STPPaymentCardTextFieldDelegate {
+
+
+
+
+class postRequests: UIViewController,  CardIOPaymentViewControllerDelegate, STPPaymentCardTextFieldDelegate {
     
     @IBOutlet var userID: UILabel!
     @IBOutlet var button: UIButton!
-    @IBOutlet var textField: STPPaymentCardTextField!
-    
-    
-    var cust = [User]()
-    var stripeUtil = createStripeUser()
-    var cards = [AnyObject]()
+    let ref = FIRDatabase.database().reference()
+    let user = FIRAuth.auth()?.currentUser
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        let user = FIRAuth.auth()?.currentUser
+        // card.io preload
+        
+        CardIOUtilities.preload()
+        
+      
     
         let email = user?.email
         let uid = user?.uid
         let photoURL = user?.photoURL
         let userName = user?.displayName
         
+       
+   
         if FIRAuth.auth()?.currentUser != nil {
             
         userID.text = userName
@@ -57,55 +67,73 @@ class postRequests: UIViewController, STPPaymentCardTextFieldDelegate {
        
     }
     
-    func getStripeUser() {
+    func userDidProvide(_ cardInfo: CardIOCreditCardInfo!, in paymentViewController: CardIOPaymentViewController!) {
+        if let info = cardInfo {
+            let str = NSString(format: "Received card info.\n Number: %@\n expiry: %02lu/%lu\n cvv: %@.", info.redactedCardNumber, info.expiryMonth, info.expiryYear, info.cvv)
+            
+            let uid = user?.uid
+            
+            self.ref.queryOrdered(byChild: "CCard").queryEqual(toValue: "\(uid)")
+                .observeSingleEvent(of: .value, with: { snapshot in
+                    
+                    if ( snapshot.value is NSNull ) {
+                        print("not found)") //didnt find it, ok to proceed
+                        
+                    } else {
+                        print(snapshot.value) //found it, stop!
+                    }
+            })
+            
         
-        let shopifyURL = "http://localhost:3000/customer"
-        Alamofire.request(shopifyURL).responseJSON { (response) -> Void in
-        // check if the result has a value
         
+            var stripCard = STPCard()
             
-        if let value = response.result.value {
+            // pass card to stripe
+            stripCard.number = info.cardNumber
+            stripCard.cvc = info.cvv
+            stripCard.expMonth = info.expiryMonth
+            stripCard.expYear = info.expiryYear
             
-            let json = JSON(value)
-               
-            print(json)
+        
+            print(str)
             
-          
-            }
-         }
+            
+            //dismiss scanning controller
+            paymentViewController?.dismiss(animated: true, completion: nil)
+            
+            
+        }
+        
+    }
+
+    
+    @IBAction func scanCard(_ sender: AnyObject) {
+        
+        
+        let cardIOVC = CardIOPaymentViewController(paymentDelegate: self)
+        cardIOVC?.modalPresentationStyle = .formSheet
+        present(cardIOVC!, animated: true, completion: nil)
+        
+        
+        
+        let email = user?.email
+        let uid = user?.uid
+        let photoURL = user?.photoURL
+        let userName = user?.displayName
+        let apiURL = "http://localhost:3000/add-customer"
+        let params = ["email": email]
+        let heads = ["Accept": "application/json"]
+        
+        
+        
+       
+    }
+    func userDidCancel(_ paymentViewController: CardIOPaymentViewController!) {
+        // label.text = "user canceled"
+        paymentViewController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func button(_ sender: Any) {
-        
-         let params = textField.cardParams
-        
-        //check if the customerId exist
-        if let tokenId = stripeUtil.customerId {
-            //if yes, call the createCard method of our stripeUtil object, pass customer id
-            self.stripeUtil.createCard(tokenId, card: params, completion: { (success) in
-                //there is a new card !
-                self.stripeUtil.getCardsList({ (result) in
-                    if let result = result {
-                        self.cards = result
-                    }
-                    //store results on our cards, clear textfield and reload tableView
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.cardTextField.clear()
-                        self.cardsTableView.reloadData()
-                    })
-                })
-            })
-        }
-        else {
-            //if not, create the user with our createUser method
-            self.stripeUtil.createUser(card: params, completion: { (success) in
-                
-                    //store results on our cards, clear textfield and reload tableView
-                
-                        self.textField.clear()
-                        
-               
-                })
-        }
-    }
+    
+    
+    
 }

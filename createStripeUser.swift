@@ -6,6 +6,7 @@
 //  Copyright © 2016 Appear. All rights reserved.
 //
 
+/*
 import UIKit
 import Stripe
 import Firebase
@@ -178,4 +179,4 @@ class createStripeUser {
 
 
 
-
+*/

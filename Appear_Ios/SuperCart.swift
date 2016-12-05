@@ -12,7 +12,7 @@ import FirebaseDatabase
 class SuperCart: NSObject {
     
     var superCartID: String?
-    var userID: String?
+    var cartID: String?
     var subTotal: Int?
     var shippingTotal: Int?
     var total: Int?
@@ -22,13 +22,13 @@ class SuperCart: NSObject {
     convenience init(snapshot: FIRDataSnapshot?) {
         self.init()
         superCartID = snapshot!.key as String?
-        userID = (snapshot?.value as? NSDictionary)?["UID"] as? String
+        cartID = (snapshot?.value as? NSDictionary)?["cartID"] as? String
         subTotal = (snapshot?.value as? NSDictionary)?["subTotal"] as? Int
         shippingTotal = (snapshot?.value as? NSDictionary)? ["shippingTotal"] as? Int
         total = (snapshot?.value as? NSDictionary)?["total"] as? Int
         productCount = (snapshot?.value as? NSDictionary)?["productCount"] as? Int
-        // json = nil
-        //storeCount = 0
+        
+        
     }
 }
 

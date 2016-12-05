@@ -29,12 +29,13 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
     
     @IBOutlet var paymentGalleryView: UIView!
     
-    var stripeTool = StripeTools()
+    
     var customerId: String?
     var soundEffect = AVAudioPlayer()
     var CC = [creditCard]()
     var DBref: FIRDatabaseReference!
-    var createUser = createStripeUser()
+    let ref = FIRDatabase.database().reference()
+    
 
     
     var gravity: UIGravityBehavior!
@@ -51,13 +52,11 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
             
             
             DBref = FIRDatabase.database().reference().child("CCard").child(uid)
-            
-            
             DBref.observe(.value, with: { snapshot in
                 
-                var newCards = [creditCard]()
+              var newCards = [creditCard]()
                 
-                for cCard in snapshot.children {
+              for cCard in snapshot.children {
                     
                     let newCard = creditCard(snapshot: cCard as! FIRDataSnapshot)
                     newCards.insert(newCard, at:0)
@@ -147,6 +146,11 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
         paymentViewController?.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func card(_ sender: Any) {
+        
+        createCreditCard()
+        
+    }
     
     
     func getStripeToken(card:STPCardParams) {
@@ -194,6 +198,7 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
        }
    
     }
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -209,6 +214,28 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
         
         return cell
         
+    }
+    
+    func createCreditCard() {
+        
+        if let user = FIRAuth.auth()?.currentUser {
+        let uid = user.uid
+            
+        self.ref.child("CCard").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            if snapshot.hasChild(uid.self){
+                
+                print("credit card user exists")
+                print(snapshot.value)
+                
+            } else {
+                
+                print("there is no user")
+                
+            }
+            
+            })
+        
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)  {
@@ -246,100 +273,8 @@ class paymentGallery: UIViewController, CardIOPaymentViewControllerDelegate, STP
         }
         
     }
-    
-    
-    /*
-    func createStripeUser() {
-        
-        let shopifyURL = "https://arcane-beach-89880.herokuapp.com/customers"
-        
-        
-        Alamofire.request(shopifyURL).responseJSON { (response) -> Void in
-            
-            // check if the result has a value
-            
-            if let value = response.result.value {
-                
-                
-                let json = JSON(value)
-                
-                print(json)
-                
-                
-                
-                
-            }
-        }
-        
-    }
-    
- */
-    
-    let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
-    var dataTask: URLSessionDataTask?
-    
-    
-    //createUser
-    func createUser(card: STPCardParams, completion: @escaping (_ success: Bool) -> Void) {
-        
-        //Stripe iOS SDK will gave us a token to make APIs call possible
-        stripeTool.generateToken(card: card) { (token) in
-            if(token != nil) {
-                
-                //request to create the user
-                let request = NSMutableURLRequest(url: NSURL(string: "http://localhost:3000/createCust")! as URL)
-                
-                //params array where you can put your user informations
-                var params = [String:String]()
-                params["email"] = "test@test.test"
-                
-                //transform this array into a string
-                var str = ""
-                params.forEach({ (key, value) in
-                    str = "\(str)\(key)=\(value)&"
-                })
-                
-                //basic auth
-                request.setValue(self.stripeTool.getBasicAuth(), forHTTPHeaderField: "Authorization")
-                
-                //POST method, refer to Stripe documentation
-                request.httpMethod = "POST"
-                
-                request.httpBody = str.data(using: String.Encoding.utf8)
-                
-                //create request block
-                self.dataTask = self.defaultSession.dataTask(with: request as URLRequest) { (data, response, error) in
-                    
-                    //get returned error
-                    if let error = error {
-                        print(error)
-                        completion(false)
-                    }
-                    else if let httpResponse = response as? HTTPURLResponse {
-                        //you can also check returned response
-                        if(httpResponse.statusCode == 200) {
-                            if let data = data {
-                                let json = try! JSONSerialization.jsonObject(with: data, options: .allowFragments)
-                                //serialize the returned datas an get the customerId
-                                if let id = ["id"] as? String {
-                                    self.customerId = id
-                                   // self.createCard(id, card: card) { (success) in
-                                       // completion(success: true)
-                                   // }
-                                }
-                            }
-                        }
-                        else {
-                            completion(false)
-                        }
-                    }
-                }
-                
-                //launch request
-                self.dataTask?.resume()
-            }
-        }
-    }
-
 
 }
+    
+
+   

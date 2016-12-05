@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8FE-cf-chF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fjJ-m4-sbt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -509,6 +509,7 @@
                                 </state>
                                 <connections>
                                     <action selector="paymentGalleryTrigger:" destination="4fu-Hv-Woq" eventType="touchUpInside" id="mdb-1q-jNF"/>
+                                    <segue destination="VSa-vy-PUy" kind="presentation" id="m0h-fb-lw8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -530,6 +531,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9M2-Y1-l52" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-644" y="-1583.6581709145428"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="dGw-Jc-NCe">
+            <objects>
+                <viewController id="VSa-vy-PUy" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="usu-XM-nAs"/>
+                        <viewControllerLayoutGuide type="bottom" id="FaN-Mg-OFN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qbl-aH-M9I">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bzr-4J-jkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1673" y="-2297"/>
         </scene>
         <!--Payment Gallery-->
         <scene sceneID="bzn-Yc-QrK">
@@ -634,6 +653,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyv-p6-geb">
+                                <rect key="frame" x="164" y="50" width="46" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="card:" destination="33o-TL-SUh" eventType="touchUpInside" id="FJF-7i-jZ9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -928,40 +955,64 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gFm-M3-fF0">
-                                <rect key="frame" x="105" y="318" width="164" height="127"/>
+                                <rect key="frame" x="145" y="247" width="84" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="button:" destination="8FE-cf-chF" eventType="touchUpInside" id="b6Y-O7-6Gg"/>
+                                    <action selector="scanCard:" destination="8FE-cf-chF" eventType="touchUpInside" id="Ngk-nL-kob"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bqy-uA-BzP">
-                                <rect key="frame" x="33" y="220" width="309" height="90"/>
+                                <rect key="frame" x="33" y="97" width="309" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vF3-ws-O8N" customClass="STPFormTextField">
-                                <rect key="frame" x="17" y="80" width="342" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UN6-Wo-7CF">
+                                <rect key="frame" x="129" y="546" width="117" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <state key="normal" title="firebase"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="button" destination="gFm-M3-fF0" id="z06-ur-9iY"/>
-                        <outlet property="stripeTextFiled" destination="vF3-ws-O8N" id="4r3-rt-00m"/>
-                        <outlet property="textField" destination="vF3-ws-O8N" id="NC7-4e-m7C"/>
                         <outlet property="userID" destination="Bqy-uA-BzP" id="Nvp-UW-gle"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mom-Rn-39v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="135.19999999999999" y="469.1154422788606"/>
+        </scene>
+        <!--Test View-->
+        <scene sceneID="Afq-7Z-ZBN">
+            <objects>
+                <viewController id="hqX-uQ-8cX" customClass="testView" customModule="Appear_Ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JGl-QL-gdC"/>
+                        <viewControllerLayoutGuide type="bottom" id="QQn-q3-oxQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tld-gV-jpT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kS7-gz-GUo">
+                                <rect key="frame" x="136" y="302" width="103" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="firebaseQ:" destination="hqX-uQ-8cX" eventType="touchUpInside" id="HLG-Z3-Piq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ImV-ao-A9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="140" y="1192"/>
         </scene>
         <!--Facebook Login Pop Up-->
         <scene sceneID="OtA-xd-wQC">
@@ -1076,7 +1127,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIJ-Nw-zDc">
-                                                <rect key="frame" x="0.0" y="3" width="48" height="46"/>
+                                                <rect key="frame" x="0.0" y="4" width="48" height="46"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="CrossInfo"/>
                                                 <connections>
