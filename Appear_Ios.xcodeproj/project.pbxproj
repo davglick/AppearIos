@@ -61,6 +61,12 @@
 		4EAAA8FB1DF0E8EF0091E013 /* StripeTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8FA1DF0E8EF0091E013 /* StripeTools.swift */; };
 		4EAAA8FD1DF0EC2B0091E013 /* createStripeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8FC1DF0EC2B0091E013 /* createStripeUser.swift */; };
 		4EAAA9231DF4D10B0091E013 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA9221DF4D10B0091E013 /* testView.swift */; };
+		4EAAA9251DF633D00091E013 /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA9241DF633CF0091E013 /* DismissAnimation.swift */; };
+		4EAAA9271DF634430091E013 /* Interact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA9261DF634430091E013 /* Interact.swift */; };
+		4EAAA9291DF634A30091E013 /* paymentGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA9281DF634A30091E013 /* paymentGalleryViewController.swift */; };
+		4EAAA92B1DF696C50091E013 /* CreditCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EAAA92A1DF696C50091E013 /* CreditCardCell.xib */; };
+		4EAAA92D1DF697620091E013 /* CreditCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA92C1DF697620091E013 /* CreditCardCell.swift */; };
+		4EAAA92F1DF69EF40091E013 /* DefaultCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA92E1DF69EF40091E013 /* DefaultCard.swift */; };
 		4EACD3FA1DC98E4700B07669 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACD3F91DC98E4700B07669 /* ProfileView.swift */; };
 		4EACD3FD1DC991B400B07669 /* ShoppingBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACD3FC1DC991B400B07669 /* ShoppingBag.swift */; };
 		4EACD3FF1DC9967800B07669 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EACD3FE1DC9967800B07669 /* UserView.swift */; };
@@ -135,6 +141,12 @@
 		4EAAA8FA1DF0E8EF0091E013 /* StripeTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeTools.swift; sourceTree = "<group>"; };
 		4EAAA8FC1DF0EC2B0091E013 /* createStripeUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = createStripeUser.swift; path = ../createStripeUser.swift; sourceTree = "<group>"; };
 		4EAAA9221DF4D10B0091E013 /* testView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
+		4EAAA9241DF633CF0091E013 /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
+		4EAAA9261DF634430091E013 /* Interact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interact.swift; sourceTree = "<group>"; };
+		4EAAA9281DF634A30091E013 /* paymentGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = paymentGalleryViewController.swift; sourceTree = "<group>"; };
+		4EAAA92A1DF696C50091E013 /* CreditCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditCardCell.xib; sourceTree = "<group>"; };
+		4EAAA92C1DF697620091E013 /* CreditCardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardCell.swift; sourceTree = "<group>"; };
+		4EAAA92E1DF69EF40091E013 /* DefaultCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultCard.swift; sourceTree = "<group>"; };
 		4EACD3F91DC98E4700B07669 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		4EACD3FC1DC991B400B07669 /* ShoppingBag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingBag.swift; sourceTree = "<group>"; };
 		4EACD3FE1DC9967800B07669 /* UserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
@@ -326,9 +338,11 @@
 			isa = PBXGroup;
 			children = (
 				4E74A4831DCC366A00490A78 /* LeftToRightSegue.swift */,
+				4EAAA9261DF634430091E013 /* Interact.swift */,
 				4E74A48E1DCC42A400490A78 /* CircularTransition.swift */,
 				4EACD4161DCBF7D100B07669 /* SegueTransition.swift */,
 				4E0ED4D91DD0459C00D699B7 /* BackToHomeRight.swift */,
+				4EAAA9241DF633CF0091E013 /* DismissAnimation.swift */,
 			);
 			name = "Segue Animation Classes";
 			sourceTree = "<group>";
@@ -337,9 +351,13 @@
 			isa = PBXGroup;
 			children = (
 				4EAAA8FC1DF0EC2B0091E013 /* createStripeUser.swift */,
+				4EAAA92A1DF696C50091E013 /* CreditCardCell.xib */,
+				4EAAA92C1DF697620091E013 /* CreditCardCell.swift */,
+				4EAAA9281DF634A30091E013 /* paymentGalleryViewController.swift */,
 				4E104DB11DEBB64300B33841 /* paymentGallery.swift */,
 				4EAAA8FA1DF0E8EF0091E013 /* StripeTools.swift */,
 				4EAAA8F21DEC09E10091E013 /* cardCell.swift */,
+				4EAAA92E1DF69EF40091E013 /* DefaultCard.swift */,
 				4EAAA8F01DEBD3530091E013 /* creditCard.swift */,
 			);
 			name = "Credit Card";
@@ -468,6 +486,7 @@
 				4E1D258B1DC336A700F6EF6E /* LaunchScreen.storyboard in Resources */,
 				4E72B8CE1DDD4A1C005C777B /* Md_Gothic11.ttf in Resources */,
 				4E135A851DCF0FB60098CA94 /* swipe.mp3 in Resources */,
+				4EAAA92B1DF696C50091E013 /* CreditCardCell.xib in Resources */,
 				4E29FED01DC4601B00F0AA06 /* ProductViewCell.xib in Resources */,
 				4E4FC4A01DD2C347008FA012 /* MavenPro-Regular.ttf in Resources */,
 				4E1D25881DC336A700F6EF6E /* Assets.xcassets in Resources */,
@@ -538,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E104DB21DEBB64300B33841 /* paymentGallery.swift in Sources */,
+				4EAAA92F1DF69EF40091E013 /* DefaultCard.swift in Sources */,
 				4E74A4961DCC44D100490A78 /* User.swift in Sources */,
 				4EACD4171DCBF7D100B07669 /* SegueTransition.swift in Sources */,
 				4E89B3491DC859600031673B /* LineItem.swift in Sources */,
@@ -552,6 +572,7 @@
 				4EAAA8FD1DF0EC2B0091E013 /* createStripeUser.swift in Sources */,
 				4EAAA8F31DEC09E10091E013 /* cardCell.swift in Sources */,
 				4E74A4941DCC43E700490A78 /* AddressCell.swift in Sources */,
+				4EAAA9271DF634430091E013 /* Interact.swift in Sources */,
 				4EAAA8F71DED25A20091E013 /* Customer.swift in Sources */,
 				4E1D25A11DC33DC200F6EF6E /* StoreProfileList.swift in Sources */,
 				4E1D257E1DC336A700F6EF6E /* AppDelegate.swift in Sources */,
@@ -563,6 +584,7 @@
 				4EACD3FA1DC98E4700B07669 /* ProfileView.swift in Sources */,
 				4E02563C1DD9A1C8000C90CE /* Cart.swift in Sources */,
 				4E74A49A1DCC45B300490A78 /* ViewControllerPopUp.swift in Sources */,
+				4EAAA9251DF633D00091E013 /* DismissAnimation.swift in Sources */,
 				4E74A4881DCC405900490A78 /* AddressGalleryView.swift in Sources */,
 				4E1D259D1DC33D2000F6EF6E /* Vendor.swift in Sources */,
 				4E1D25861DC336A700F6EF6E /* Appear_Ios.xcdatamodeld in Sources */,
@@ -571,11 +593,13 @@
 				4E135A7E1DCF0E9C0098CA94 /* AddressMapView.swift in Sources */,
 				4E29FECC1DC45FB100F0AA06 /* Option.swift in Sources */,
 				4EAAA8F11DEBD3530091E013 /* creditCard.swift in Sources */,
+				4EAAA92D1DF697620091E013 /* CreditCardCell.swift in Sources */,
 				4E02563A1DD99F5F000C90CE /* SuperCart.swift in Sources */,
 				4E4FC4A61DD2CB63008FA012 /* CustomSizeCell.swift in Sources */,
 				4EACD40D1DCAC0D900B07669 /* VerticalScrollViewController.swift in Sources */,
 				4EF984CC1DD0334100FF78D8 /* AddressGalleryCell.swift in Sources */,
 				4E74A48D1DCC41C600490A78 /* AddressList.swift in Sources */,
+				4EAAA9291DF634A30091E013 /* paymentGalleryViewController.swift in Sources */,
 				4EACD3FD1DC991B400B07669 /* ShoppingBag.swift in Sources */,
 				4E74A49C1DCD630200490A78 /* FacebookLoginPopUp.swift in Sources */,
 				4E1D25991DC3389B00F6EF6E /* StoreProfile.swift in Sources */,
