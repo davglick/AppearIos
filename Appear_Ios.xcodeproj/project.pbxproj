@@ -58,7 +58,6 @@
 		4EAAA8F51DECF5FF0091E013 /* postRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8F41DECF5FF0091E013 /* postRequests.swift */; };
 		4EAAA8F71DED25A20091E013 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8F61DED25A20091E013 /* Customer.swift */; };
 		4EAAA8F91DEF94110091E013 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8F81DEF94110091E013 /* testViewController.swift */; };
-		4EAAA8FB1DF0E8EF0091E013 /* StripeTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8FA1DF0E8EF0091E013 /* StripeTools.swift */; };
 		4EAAA8FD1DF0EC2B0091E013 /* createStripeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA8FC1DF0EC2B0091E013 /* createStripeUser.swift */; };
 		4EAAA9231DF4D10B0091E013 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA9221DF4D10B0091E013 /* testView.swift */; };
 		4EAAA9251DF633D00091E013 /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAAA9241DF633CF0091E013 /* DismissAnimation.swift */; };
@@ -138,7 +137,6 @@
 		4EAAA8F41DECF5FF0091E013 /* postRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = postRequests.swift; sourceTree = "<group>"; };
 		4EAAA8F61DED25A20091E013 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		4EAAA8F81DEF94110091E013 /* testViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
-		4EAAA8FA1DF0E8EF0091E013 /* StripeTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeTools.swift; sourceTree = "<group>"; };
 		4EAAA8FC1DF0EC2B0091E013 /* createStripeUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = createStripeUser.swift; path = ../createStripeUser.swift; sourceTree = "<group>"; };
 		4EAAA9221DF4D10B0091E013 /* testView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 		4EAAA9241DF633CF0091E013 /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
@@ -355,7 +353,6 @@
 				4EAAA92C1DF697620091E013 /* CreditCardCell.swift */,
 				4EAAA9281DF634A30091E013 /* paymentGalleryViewController.swift */,
 				4E104DB11DEBB64300B33841 /* paymentGallery.swift */,
-				4EAAA8FA1DF0E8EF0091E013 /* StripeTools.swift */,
 				4EAAA8F21DEC09E10091E013 /* cardCell.swift */,
 				4EAAA92E1DF69EF40091E013 /* DefaultCard.swift */,
 				4EAAA8F01DEBD3530091E013 /* creditCard.swift */,
@@ -568,7 +565,6 @@
 				4E1D25801DC336A700F6EF6E /* ViewController.swift in Sources */,
 				4E29FECA1DC45F8900F0AA06 /* Product.swift in Sources */,
 				4E29FEC81DC45F4200F0AA06 /* VendorProfile.swift in Sources */,
-				4EAAA8FB1DF0E8EF0091E013 /* StripeTools.swift in Sources */,
 				4EAAA8FD1DF0EC2B0091E013 /* createStripeUser.swift in Sources */,
 				4EAAA8F31DEC09E10091E013 /* cardCell.swift in Sources */,
 				4E74A4941DCC43E700490A78 /* AddressCell.swift in Sources */,

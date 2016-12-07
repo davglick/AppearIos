@@ -544,7 +544,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGb-3g-iu2">
-                                <rect key="frame" x="135" y="611" width="104" height="48"/>
+                                <rect key="frame" x="135" y="602" width="104" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" image="pullDownArrow"/>
                                 <connections>
@@ -588,6 +588,19 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyv-p6-geb">
+                                <rect key="frame" x="16" y="502" width="343" height="37"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.98999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="15"/>
+                                <state key="normal" title="Apple Pay">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="card:" destination="33o-TL-SUh" eventType="touchUpInside" id="FJF-7i-jZ9"/>
+                                    <action selector="createCard:" destination="VSa-vy-PUy" eventType="touchUpInside" id="duK-0D-56o"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="applePay" translatesAutoresizingMaskIntoConstraints="NO" id="GEz-84-h3Y">
                                 <rect key="frame" x="58" y="510" width="17" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -611,17 +624,19 @@
                                 <color key="textColor" red="0.52935183048248291" green="0.52944636344909668" blue="0.52934587001800537" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyv-p6-geb">
-                                <rect key="frame" x="16" y="502" width="343" height="37"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.98999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="15"/>
-                                <state key="normal" title="Apple Pay">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="close" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x8v-6K-MBp">
+                                <rect key="frame" x="167" y="638" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="12"/>
+                                <color key="textColor" red="0.70937103426395942" green="0.68274253770271587" blue="0.70315418371794125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UoA-lC-i3i">
+                                <rect key="frame" x="164" y="564" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="card:" destination="33o-TL-SUh" eventType="touchUpInside" id="FJF-7i-jZ9"/>
-                                    <action selector="createCard:" destination="VSa-vy-PUy" eventType="touchUpInside" id="duK-0D-56o"/>
+                                    <action selector="getCustomer:" destination="VSa-vy-PUy" eventType="touchUpInside" id="JGu-AD-LpZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -675,7 +690,7 @@
                                         <rect key="frame" x="146" y="348" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.1450980392" green="0.5568627451" blue="0.69411764710000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="09F389B8-E055-4FD2-988E-4F5C61913085"/>
+                                        <state key="normal" image="6BBE8DEF-93FC-47F9-BD81-1EC0CB3CA92A"/>
                                         <connections>
                                             <action selector="addNewAddress:" destination="OFb-6x-bmz" eventType="touchUpInside" id="pvK-Z3-TjZ"/>
                                             <action selector="scanCard:" destination="33o-TL-SUh" eventType="touchUpInside" id="lfS-Yf-n5b"/>
@@ -696,7 +711,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PKl-HC-RLk">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <state key="normal" image="97AB30C2-C7A7-4584-A399-EA535EC8CC0A"/>
+                                <state key="normal" image="734F9ED5-0D4B-4A95-BC0B-B9C77E619CAC"/>
                                 <connections>
                                     <action selector="closeAddressPopUp:" destination="OFb-6x-bmz" eventType="touchUpInside" id="sMb-4t-kZh"/>
                                     <action selector="paymentGallery:" destination="33o-TL-SUh" eventType="touchUpInside" id="3Bb-7S-Bom"/>
@@ -972,7 +987,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="fjJ-m4-sbt" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1ZC-fK-qsP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1ZC-fK-qsP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -983,7 +998,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ikd-Qj-tjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="-191"/>
+            <point key="canvasLocation" x="174" y="-76"/>
         </scene>
         <!--Facebook Login Pop Up-->
         <scene sceneID="OtA-xd-wQC">
@@ -1403,7 +1418,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="09F389B8-E055-4FD2-988E-4F5C61913085" width="22" height="22">
+        <image name="6BBE8DEF-93FC-47F9-BD81-1EC0CB3CA92A" width="22" height="22">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1486,7 +1501,7 @@ AKsArQCyALUAtwC5ALsAvQDCANkA2wDdEQ8RFBEfESgROxE/EUoRUxFYEWARYxFoEXcRexGCEYoRlxGc
 EZ4RoBGlEa0RsBG1Eb0RwBHSEdUR2gAAAAAAAAIBAAAAAAAAAEEAAAAAAAAAAAAAAAAAABHcA
 </mutableData>
         </image>
-        <image name="97AB30C2-C7A7-4584-A399-EA535EC8CC0A" width="22" height="6">
+        <image name="734F9ED5-0D4B-4A95-BC0B-B9C77E619CAC" width="22" height="6">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1567,7 +1582,7 @@ AQAAAAAAAABBAAAAAAAAAAAAAAAAAAAMWw
         <image name="visaIcon" width="30" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="tdO-dT-JYS"/>
         <segue reference="Ei4-BZ-Cla"/>
-        <segue reference="nkb-x3-Nez"/>
     </inferredMetricsTieBreakers>
 </document>

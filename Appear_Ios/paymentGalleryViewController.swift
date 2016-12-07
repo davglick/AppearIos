@@ -167,7 +167,7 @@ class paymentGalleryViewController: UIViewController, CardIOPaymentViewControlle
                     let uid = user.uid
                     let photoURL = user.photoURL
                     let userName = user.displayName
-                    let apiURL = "http://localhost:3000/add-customer"
+                    let apiURL = "https://shielded-basin-63018.herokuapp.com/add-customer"
                     let params = ["email": email,
                                   "description": uid]
                     let heads = ["Accept": "application/json"]
@@ -324,6 +324,22 @@ class paymentGalleryViewController: UIViewController, CardIOPaymentViewControlle
         default:
             break
         }
+    }
+    
+    @IBAction func getCustomer(_ sender: Any) {
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            
+        let uid = user.uid
+        let id = FIRDatabase.database().reference().child("CCard").child(uid.self)
+        
+        print(id)
+        
+        }
+       // let apiURL = "http://localhost:3000/customer"
+
+        
+        
     }
 }
 
