@@ -26,10 +26,18 @@ class DefaultCard: UIViewController {
             
         self.ref.child("CCard").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             if snapshot.hasChild(uid.self){
+                
+        self.ref.child("CCard").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+                    if let snapshotValue = snapshot.value as? [String:Any],
+                        let currentData = snapshotValue[uid.self] as? [String:Any] {
+                        //let cardNum = (currentData["cardNum"])! as! String
+                
+                        
                     print("credit card user exists")
-                    print(snapshot.value)
+                   // print(cardNum)
+                   // print(snapshot.value)
                     
-            self.defaultCard.text = "**** 4242"
+            //self.defaultCard.text = cardNum
                 
      
                 } else {
@@ -37,9 +45,12 @@ class DefaultCard: UIViewController {
             self.defaultCard.text = "Add a payment method"
                     
             }
-        })
+                })
+                
+               }
+            })
+        }
     }
-}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

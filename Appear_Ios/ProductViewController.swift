@@ -57,6 +57,8 @@ UITableViewDelegate {
     var cartCount: Int?
     
     
+    @IBOutlet var sizeButton: UIButton!
+    @IBOutlet var infoButton: UIButton!
     @IBOutlet var productCollectionView: UICollectionView!
     @IBOutlet var pageControll: UIPageControl!
     @IBOutlet var AddToCart: UIButton!
@@ -192,16 +194,16 @@ UITableViewDelegate {
     func createSuperCart() {
         
         if let user = FIRAuth.auth()?.currentUser {
-            
             let uid = user.uid
             
+            // check if super cart exists
             self.ref.child("Supercarts").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
                 if snapshot.hasChild(uid.self){
-                    
                     print("Cart does exist")
-                    
+
                 }else{
                     
+            // if super cart is nul create a super cart
                     print("cart doesn't exist")
                     self.supercart = SuperCart()
                     self.supercart!.superCartID = NSUUID().uuidString
@@ -211,6 +213,8 @@ UITableViewDelegate {
                     self.supercart!.total = 0
                     self.supercart!.completed = false
                     self.ref.child("Supercarts").child(uid).setValue(["cartID": "\(self.supercart!.superCartID!)", "subTotal": "\(self.supercart!.subTotal!)", "shippingTotal": "\(self.supercart!.shippingTotal!)", "total": "\(self.supercart!.total!)", "productCount": "\(self.supercart!.productCount!)"])
+                    
+                        self.ref.child("Carts").child(uid).setValue(["Date":"\(NSDate())"])
                 }
                 
                 self.createCart()
@@ -218,142 +222,315 @@ UITableViewDelegate {
         }
         
     }
+    
 
     func createCart() {
-        
-        if let user = FIRAuth.auth()?.currentUser {
-            
-        let uid = user.uid
+      var exists = false
+      if let user = FIRAuth.auth()?.currentUser {
+         let uid = user.uid
 
-        self.ref.child("Carts").queryOrdered(byChild: "superCartToken").queryEqual(toValue: uid.self).observeSingleEvent(of: .value, with: { (snapshot) in
-            if let snapshots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-            for snap in snapshots {
-                if let doing = snap.value as? Dictionary<String, AnyObject> {
-                    if(doing["vendorID"] as? String == self.product.vendorID) {
+        ref.child("Carts").child(uid.self).queryOrdered(byChild: "vendorID").observeSingleEvent(of: .value, with: { (snapshot) in
+            let snapDic = snapshot.value as? NSDictionary
+                for child in snapDic! {
+                    let childDic = child.value as? NSDictionary
+                    
+                    if(childDic?["vendorID"] as? String == self.product.vendorID) {
                         self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
-                 
-            print(snapshot.value)
-                    print("Exists")
+                        exists = true
+                        print("yep")
+                    
+                }
                 
-           } else {
-
-            /*
+            }
+            
+                if (exists == false){
+            
                 self.cart = Cart()
-                self.cart!.superCartToken = uid
                 self.cart!.cartToken = NSUUID().uuidString
-                self.cart!.cartId = NSUUID().uuidString
+                self.cart!.superCartUID = uid.self
                 self.cart!.vendorID = self.product.vendorID
                 self.cart!.timestampCreated = "\(NSDate())"
-                self.ref.child("Carts").child(self.cart!.cartToken!).setValue(["superCartToken": "\(self.cart!.superCartToken!)","vendorID": "\(self.cart!.vendorID!)", "cartId": "\(self.cart!.cartId!)","timestampCreated": "\(self.cart!.timestampCreated!)", "itemCount": "\(self.cart!.itemCount)", "cartSubTotal": "\(self.cart!.cartSubTotal)", "cartShippingTotal": "\(self.cart!.cartShippingTotal)", "cartTotal": "\(self.cart!.cartTotal)"])
- 
- */
-                    print("Nul")
-                    
-        }
-        }
-        }
-        }
+             self.ref.child("Carts").child(uid).child(self.cart!.cartToken!).setValue(["vendorID": "\(self.cart!.vendorID!)", "timestampCreated": "\(self.cart!.timestampCreated!)", "itemCount": "\(self.cart!.itemCount)", "cartSubTotal": "\(self.cart!.cartSubTotal)", "cartShippingTotal": "\(self.cart!.cartShippingTotal)", "cartTotal": "\(self.cart!.cartTotal)"])
+                
+            }
+
+    
+    self.addLineItem()
+     
         })
+     }
+    }
+
+func addLineItem() {
+   // var exists = false
+    self.product.quantity += 1
+    for option in self.options{
+        if(option.selected == true) {
+            self.product.option = option
         }
     }
+    if let user = FIRAuth.auth()?.currentUser {
+        let uid = user.uid
+
+ 
+    //self.ref.child("CartItems").queryOrdered(byChild: "cartToken").queryEqual(toValue: self.cart?.cartToken!).observeSingleEvent(of: .value, with: { (snapshot) in
+     
+                
+          //if(exists == false){
+            self.ref.child("CartItems").child(uid).childByAutoId().setValue(["productID": "\(self.product.id!)", "imageURL": "\(self.product.image[0]!)", "title": "\(self.product.title!)", "vendor": "\(self.product.vendor!)", "vendorID": "\(self.product.vendorID!)", "price": "\(self.product.price!)", "quantity": "\(self.product.quantity)", "variantID": "\(self.product.option!.ID!)", "vairantTitle": "\(self.product.option!.title!)", "cartToken": "\(self.cart!.cartToken!)"])
+      
+           }
+       // })
+    //}
+}
     
-/*
+         //   }
+                
+                
+            /*
+            let snapDic = snapshot.value as? NSDictionary
+            if snapshot.hasChild(uid.self){
+            //if snapshot.isEqual(uid) {
+            for child in snapDic! {
+            let childDic = child.value as? NSDictionary
+         
+            if(childDic?["vendorID"] as? String == self.product.vendorID) {
+                   self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
+                    exists = true
+                print("yep")
+                
+              }
+               // }
+               // print(snapshot.value)
+            
+         */
+           // }
+   
+            // print(snapshot.value)
+     //   }
+            /*
+            
+            if(exists == false) {
+ 
+
+                self.cart = Cart()
+                self.cart!.cartToken = NSUUID().uuidString
+                self.cart!.superCartUID = uid.self
+                self.cart!.vendorID = self.product.vendorID
+                self.cart!.timestampCreated = "\(NSDate())"
+                self.ref.child("Carts").child(uid).child(self.cart!.cartToken!).setValue(["superCartToken": "\(self.cart!.superCartUID!)", "vendorID": "\(self.cart!.vendorID!)", "timestampCreated": "\(self.cart!.timestampCreated!)", "itemCount": "\(self.cart!.itemCount)", "cartSubTotal": "\(self.cart!.cartSubTotal)", "cartShippingTotal": "\(self.cart!.cartShippingTotal)", "cartTotal": "\(self.cart!.cartTotal)"])
+               }
+                */
+            
+            //self.addLineItem()
+      
+    /*
+    func addLineItem() {
+        var exists = false
+        self.product.quantity += 1
+        for option in self.options{
+            if(option.selected == true) {
+                self.product.option = option
             }
+        }
+      //  self.ref.child("CartItems").queryOrdered(byChild: "cartToken").queryEqual(toValue: self.cart?.cartToken!).observeSingleEvent(of: .value, with: { (snapshot) in
+            //let snapDic = snapshot.value as? NSDictionary
+           // for child in snapDic!{
+        if let user = FIRAuth.auth()?.currentUser {
+            
+            let uid = user.uid
+
+            self.ref.child("CartItems").childByAutoId().setValue(["productID": "\(self.product.id!)", "imageURL": "\(self.product.image[0]!)", "title": "\(self.product.title!)", "vendor": "\(self.product.vendor!)", "vendorID": "\(self.product.vendorID!)", "price": "\(self.product.price!)", "quantity": "\(self.product.quantity)", "variantID": "\(self.product.option!.ID!)", "vairantTitle": "\(self.product.option!.title!)", "cartToken": "\(self.cart!.cartToken!)"])
+                */
+               // print(snapshot.value)
+                
+           // }
+     //   })
+   // }
+//}
+        /*
+                let childDic = child.value as? NSDictionary
+                if(childDic?["variantID"] as? String == self.product.option?.ID) {
+                    
+                    let x = child as! FIRDataSnapshot
+                    let quantity = Int(childDic?["quantity"] as! String)
+                    self.product.quantity = quantity! + 1
+                    let uid = x.key as String
+                    self.ref.child("CartItems").child(uid).child("quantity").setValue(String(self.product.quantity))
+                    exists = true
+                }
+            }
+            if(exists == false){
+                self.ref.child("CartItems").childByAutoId().setValue(["productID": "\(self.product.id!)", "imageURL": "\(self.product.image[0]!)", "title": "\(self.product.title!)", "vendor": "\(self.product.vendor!)", "vendorID": "\(self.product.vendorID!)", "price": "\(self.product.price!)", "quantity": "\(self.product.quantity)", "variantID": "\(self.product.option!.ID!)", "vairantTitle": "\(self.product.option!.title!)", "cartToken": "\(self.cart!.cartToken!)", "superCartToken": "\(self.supercart!.superCartID!)"])
+            }
+            self.ref.child("Carts").queryOrdered(byChild: "superCartToken").queryEqual(toValue: self.supercart!.superCartID).observeSingleEvent(of: .value, with: { (snapshot) in
+                let snapDic = snapshot.value as? NSDictionary
+                for child in snapDic!{
+                    let x = child as! FIRDataSnapshot
+                    var subTotal: Float
+                    var shippingTotal: Float
+                    var total: Float
+                    let childDic = child.value as? NSDictionary
+                    //a = Float(x.value!["cartSubTotal"] as! String)! + Float(self.product.price!)!
+                    //b = a + Float(x.value!["cartShippingTotal"] as! String)!
+                    if(childDic?["vendorID"] as? String == self.product.vendorID) {
+                        //let x = child as! FIRDataSnapshot
+                        subTotal = Float(childDic?["cartSubTotal"] as! String)! + Float(self.product.price!)!
+                        total = subTotal + Float(childDic?["cartShippingTotal"] as! String)!
+                        let uid = x.key as String
+                        var itemCount = Int(childDic?["itemCount"] as! String)
+                        itemCount = itemCount! + 1
+                        self.ref.child("Carts").child(uid).child("cartSubTotal").setValue(String(subTotal))
+                        self.ref.child("Carts").child(uid).child("itemCount").setValue(String(itemCount!))
+                        self.ref.child("Carts").child(uid).child("cartTotal").setValue(String(total))
+                    }
+                }
+                /*
+                self.ref.child("Supercarts").child(self.supercart!.superCartID!).observeSingleEvent(of: .value, with: { snapshot in
+                    let st = Float(snapshot.value!["subTotal"] as! String)! + Float(self.product.price!)!
+                    let t = Float(snapshot.value!["total"] as! String)! + Float(self.product.price!)!
+                    let count = Int(snapshot.value!["productCount"] as! String)! + 1
+                    self.ref.child("Supercarts").child(self.supercart!.superCartID!).child("productCount").setValue(String(count))
+                    self.ref.child("Supercarts").child(self.supercart!.superCartID!).child("subTotal").setValue(String(st))
+                    self.ref.child("Supercarts").child(self.supercart!.superCartID!).child("total").setValue(String(t))
+ */
+                })
+            })
+       // })
+    }
+
+    
+            /*
+            var newItems = [FIRDataSnapshot]()
+            for item in snapshot.children {
+                newItems.append(item as! FIRDataSnapshot)
+          
+                print(snapshot.value)
+ */
+          
+         //var exists = false
+        //let cartRef = ref.child("Carts").child(uid.self)
+       //cartRef.observe( .value, with: { (snapshot) in
+        
+       
+
+    
+        //self.ref.child("Carts").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+         //   if snapshot.hasChild(uid.self){
+            
+           //     print(uid)
+                
+        //    } else {
+            
+            /*
+                
+            print("the cart exits")
+                self.cart = Cart()
+                self.cart!.cartToken = NSUUID().uuidString
+                self.cart!.superCartUID = uid.self
+                self.cart!.vendorID = self.product.vendorID
+                self.cart!.timestampCreated = "\(NSDate())"
+                self.ref.child("Carts").child(uid).child(self.cart!.cartToken!).setValue(["superCartToken": "\(self.cart!.superCartUID!)", "vendorID": "\(self.cart!.vendorID!)", "timestampCreated": "\(self.cart!.timestampCreated!)", "itemCount": "\(self.cart!.itemCount)", "cartSubTotal": "\(self.cart!.cartSubTotal)", "cartShippingTotal": "\(self.cart!.cartShippingTotal)", "cartTotal": "\(self.cart!.cartTotal)"])
+                
+                (
+            }
+        })
+      }
+    }
+ */
+*/
+/*
+ if let snapDict = snapshot.value as? [String:AnyObject]{
+ for child in snapDict{
+ let child = Cart(snapshot: child as! FIRDataSnapshot)
+ let cartToken = child.value["superCartToken"] as? String
+ if cartToken == uid.self {
+ */
+        /*
+        self.ref.child("Carts").observeSingleEvent(of: .value, with: { (snapshot) in
+           if let snapDict = snapshot.value as? [String:AnyObject]{
+               for child in snapDict{
+            let cartToken = child.value["superCartToken"] as? String
+            print(snapshot.value)
+            }
+            }
+        })
+        
+     }
+}
+  */
+        /*
+        if let snapDict = snapshot.value as? [String:AnyObject]{
+            //if snapshot.hasChild(uid){
+            for child in snapDict{
+            let vendorId = child.value["vendorID"] as? String
+            if vendorId == self.product.vendorID {
+            self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
+                exists = true
+                print("doing")
+                
+                
+              
+            }
+    
+            }else {
+            exists = false
+            print(exists)
+                
+            }
+         }
         })
     }
 }
-*/
-            /*
-            
-            self.ref.child("Supercarts").queryOrdered(byChild: user.uid).queryEqual(toValue: uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                if(snapshot.exists()) {
-                
-                    print("Yes")
-                    print(snapshot.value)
-                
-                } else {
-                    
-                    
-                    print("Nul")
-            */
-            /*
-            self.supercart = SuperCart()
-            self.supercart!.superCartID = uid
-            self.supercart!.productCount = 0
-            self.supercart!.subTotal = 0
-            self.supercart!.shippingTotal = 0
-            self.supercart!.total = 0
-            self.supercart!.completed = false
-            self.ref.child("Supercarts").child(uid).setValue(["UID": "\(self.supercart!.superCartID!)", "subTotal": "\(self.supercart!.subTotal!)", "shippingTotal": "\(self.supercart!.shippingTotal!)", "total": "\(self.supercart!.total!)", "productCount": "\(self.supercart!.productCount!)"])
-            */
-                    
-    
- 
-
-    
-        /*
-        self.ref.child("Supercarts").queryOrdered(byChild: "UID").queryEqual(toValue: user).observeSingleEvent(of: .value, with: { (snapshot) in
-            if(snapshot.exists()) {
-               // self.supercart = SuperCart(snapshot: snapshot.children.nextObject() as? FIRDataSnapshot)
-                
-                print("value exists")
-            }
-            else{
-                
-                
-                self.supercart = SuperCart()
-                self.supercart!.superCartID = NSUUID().uuidString
-                self.supercart!.userID = user
-                self.supercart!.productCount = 0
-                self.supercart!.subTotal = 0
-                self.supercart!.shippingTotal = 0
-                self.supercart!.total = 0
-                self.supercart!.completed = false
-                self.ref.child("Supercarts").child(self.supercart!.superCartID!).setValue(["UID": "\(self.supercart!.userID!)", "subTotal": "\(self.supercart!.subTotal!)", "shippingTotal": "\(self.supercart!.shippingTotal!)", "total": "\(self.supercart!.total!)", "productCount": "\(self.supercart!.productCount!)"])
-            }
-           
-        })
- 
-
+      */  /*
         
+    if let user = FIRAuth.auth()?.currentUser {
+    let uid = user.uid
+    var exists = false
+        
+    let ref = FIRDatabase.database().reference().child("Carts").queryOrdered(byChild: "superCartToken").queryEqual(toValue: uid.self)
+            ref.observe(.value, with:{ (snapshot: FIRDataSnapshot) in
+                
+    if let snapDict = snapshot.value as? [String:AnyObject]{
+            for child in snapDict{
+            let vendorId = child.value["vendorID"] as? String
+            if vendorId == self.product.vendorID {
+                print(self.vendorId)
+                
+            }
+          }
+    } else {
+        print ("nul")
+                }
+       })  // this is where the else is going
+      }
     }
-
- */
-  
     
-            /*
-            if let snapDict = snapshot.value as? [String:AnyObject]{
-                for child in snapDict{
-                if(child.value["vendorID"] as? String == self.product.vendorID) {
-                    self.cart = Cart(snapshot: snapshot.children.nextObject() as! FIRDataSnapshot)
-                    exists = true
-                    
-                    print("Exists")
-                    
-            }
-        
-        }
-                
-            } else {
-                self.cart = Cart()
-                self.cart!.cartToken = NSUUID().uuidString
-                self.cart!.superCartToken = self.supercart?.superCartID
-                self.cart!.vendorID = self.product.vendorID
-                self.cart!.timestampCreated = "\(NSDate())"
-                self.ref.child("Carts").child(self.cart!.cartToken!).setValue(["superCartToken": "\(self.cart!.superCartToken!)", "vendorID": "\(self.cart!.vendorID!)", "timestampCreated": "\(self.cart!.timestampCreated!)", "itemCount": "\(self.cart!.itemCount)", "cartSubTotal": "\(self.cart!.cartSubTotal)", "cartShippingTotal": "\(self.cart!.cartShippingTotal)", "cartTotal": "\(self.cart!.cartTotal)"])
-                
      
-            }
-            
-        })
-    }
-
-           */
-                
+     
+       */
     
+    // create the cart
+    /*
+     self.cart = Cart()
+     self.cart!.cartToken = NSUUID().uuidString
+     self.cart!.superCartUID = uid.self
+     self.cart!.vendorID = self.product.vendorID
+     self.cart!.timestampCreated = "\(NSDate())"
+     self.ref.child("Carts").child(uid).child(self.cart!.cartToken!).setValue(["superCartToken": "\(self.cart!.superCartUID!)", "vendorID": "\(self.cart!.vendorID!)", "timestampCreated": "\(self.cart!.timestampCreated!)", "itemCount": "\(self.cart!.itemCount)", "cartSubTotal": "\(self.cart!.cartSubTotal)", "cartShippingTotal": "\(self.cart!.cartShippingTotal)", "cartTotal": "\(self.cart!.cartTotal)"])
+     */
+
+    
+            /*
+     if let snapDict = snapshot.value as? [String:AnyObject]{
+     for child in snapDict{
+     if let vendorId = child.value["vendorID"] as? String {
+     if vendorId == self.product.vendorID {
+     */
+ 
     /*
     
-    // Create supercart, shopping cart, line items in cart 
+    // Create supercart, shopping cart, line items in cart
     
     func createSuperCart(user: String) {
         self.ref.child("Supercarts").queryOrdered(byChild: "UID").queryEqual(toValue: user).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -585,7 +762,7 @@ UITableViewDelegate {
             for string in self.product.image {
                 let url: NSURL = NSURL(string: string!)!
                 let image = UIImageView()
-                image.sd_setImage(with: url as URL!, placeholderImage: #imageLiteral(resourceName: "whiteSQR"), options: .refreshCached)
+                image.sd_setImage(with: url as URL!, placeholderImage: #imageLiteral(resourceName: "whiteSQR"), options: .highPriority)
              
                 
                 x.append(image)
@@ -684,7 +861,7 @@ UITableViewDelegate {
             cell.isUserInteractionEnabled = true
             cell.stock.text = ""
             if(self.options[indexPath.row].selected == true) {
-                print("true")
+                //print("true")
                 cell.background.backgroundColor = UIColor.black
                 cell.size.textColor = UIColor.white
             }
@@ -722,6 +899,9 @@ UITableViewDelegate {
         
         
         animateInfoIn()
+        infoButton.isEnabled = false
+        
+    
         
     }
     
@@ -732,6 +912,7 @@ UITableViewDelegate {
         
         animateInfoOut()
         animateSizeOut()
+        infoButton.isEnabled = true
         
     }
     
@@ -739,7 +920,9 @@ UITableViewDelegate {
     
     @IBAction func sizeButton(_ sender: Any) {
         
+        sizeButton.isEnabled = false
         animateSize()
+        
     }
 
     // close size view 
@@ -749,6 +932,7 @@ UITableViewDelegate {
         
         animateSizeOut()
         animateInfoOut()
+        sizeButton.isEnabled = true
       
             }
                 

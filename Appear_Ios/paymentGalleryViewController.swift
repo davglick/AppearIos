@@ -161,6 +161,7 @@ class paymentGalleryViewController: UIViewController, CardIOPaymentViewControlle
                     print("credit card user exists")
                     print(snapshot.value)
                     
+                    
                 } else {
                     
                     let email = user.email
@@ -190,9 +191,6 @@ class paymentGalleryViewController: UIViewController, CardIOPaymentViewControlle
                             print(JSON)
                             let id = JSON["id"]!
                             print(id)
-                            
-                            
-                   
 
                    self.DBref?.child("CustomerId").setValue((id as AnyObject))
                             
@@ -261,7 +259,16 @@ class paymentGalleryViewController: UIViewController, CardIOPaymentViewControlle
         if let info = cardInfo {
             let str = NSString(format: "Received card info.\n Number: %@\n expiry: %02lu/%lu\n cvv: %@.", info.redactedCardNumber, info.expiryMonth, info.expiryYear, info.cvv)
             
-            createCreditCard()
+            
+            // create stripe credit card 
+            
+            let card: STPCardParams = STPCardParams()
+            card.number = info.cardNumber
+            card.expMonth = info.expiryMonth
+            card.expYear = info.expiryYear
+            card.cvc = info.cvv
+            
+                       createCreditCard()
             
             if let user = FIRAuth.auth()?.currentUser {
                 
@@ -326,24 +333,58 @@ class paymentGalleryViewController: UIViewController, CardIOPaymentViewControlle
         }
     }
     
+    func createCard() {
+        
+        
+        let URL = "https://api.stripe.com/v1/customers/{CUSTOMER_ID}/sources"
+        let params = [ "customerId": customerId ]
+        let heads = ["Accept": "application/json"]
+        
+        Alamofire.request(URL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: heads).responseJSON { response in
+            print(response)
+
+         }
+    
+    }
+    /*
+    
     @IBAction func getCustomer(_ sender: Any) {
         
         if let user = FIRAuth.auth()?.currentUser {
             
         let uid = user.uid
-        let id = FIRDatabase.database().reference().child("CCard").child(uid.self)
+            
+        self.ref.child("CCard").observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            if let snapshotValue = snapshot.value as? [String:Any],
+                let currentData = snapshotValue[uid.self] as? [String:Any] {
+                
+                    print("credit card user exists")
+               
+            
+        let URL = "https://shielded-basin-63018.herokuapp.com/customer/sources"
+                
+                    
+        let heads = ["Accept": "application/json"]
+         /*
+        Alamofire.request(URL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: heads).responseJSON { response in
+                    print(response)
+            
+        */
+}
+}
+})
+}
+}
+*/
+      //  print(id)
+            
+            //self.ref?.child("CCard").child(uid.self).observe
         
-        print(id)
         
-        }
        // let apiURL = "http://localhost:3000/customer"
 
-        
-        
-    }
+
+
 }
-
-
-
 
 

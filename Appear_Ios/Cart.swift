@@ -12,7 +12,7 @@ import Firebase
 class Cart: NSObject {
     
     var cartToken: String?
-    var superCartToken: String?
+    var superCartUID: String?
     var vendorID: String?
     var timestampCreated: String?
     var itemCount: Int = 0
@@ -24,7 +24,7 @@ class Cart: NSObject {
     convenience init(snapshot: FIRDataSnapshot) {
         self.init()
         cartToken = snapshot.key as String
-        superCartToken = (snapshot.value as? NSDictionary)?["superCartToken"] as? String
+        superCartUID = (snapshot.value as? NSDictionary)?["superCartToken"] as? String
         vendorID = (snapshot.value as? NSDictionary)?["vendorID"] as? String
         cartId = (snapshot.value as? NSDictionary)?["cartId"] as? String
         timestampCreated = (snapshot.value as? NSDictionary)?["timestampCreated"] as? String

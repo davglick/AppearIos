@@ -42,14 +42,6 @@ class ViewProfilePopUp: UIViewController {
         
         
         // Go back to the login screen
-
-        /*
-        let FBPop = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "FacebookLogin") as! FacebookLoginPopUp
-        self.addChildViewController(FBPop)
-        FBPop.view.frame = self.view.frame
-        self.view.addSubview(FBPop.view)
-        FBPop.didMove(toParentViewController: self)
-        */
         
         removeView()
       

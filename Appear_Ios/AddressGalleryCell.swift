@@ -10,15 +10,13 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
-
-
 class AddressGalleryCell: UIViewController {
     
+   
     @IBOutlet var defaultAddress: UILabel!
-    
     var addressArray = [addAddress]()
-    
-    var databaseRef: FIRDatabaseReference!
+    var DBref: FIRDatabaseReference!
+    let ref = FIRDatabase.database().reference()
     
 
 
@@ -26,19 +24,21 @@ class AddressGalleryCell: UIViewController {
         super.viewDidLoad()
         
         if let user = FIRAuth.auth()?.currentUser {
-            
             let uid = user.uid
             
-           
-            databaseRef = FIRDatabase.database().reference().child("Delivery-Address").child(uid)
-
-           
-            
-            
+                
+            self.ref.child("Delivery-Address").child(uid.self).queryOrderedByKey().observe(FIRDataEventType.value, with: { (snapshot) in
+                 let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+                 //let address = postDict("addressName") as? [String : AnyObject]
+                
+                
+                   // print(address)
+                
+                
+            })
         }
-
-        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

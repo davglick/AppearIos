@@ -19,5 +19,5 @@ class LineItem: NSObject {
     var SKU: String?
     var option: Option?
     var variantID: String?
-
+    
 }
